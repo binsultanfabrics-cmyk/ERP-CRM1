@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 
-const Model = mongoose.model('Setting');
-
 const updateBySettingKey = async ({ settingKey, settingValue }) => {
   try {
+    // Check if database is connected and model is available
+    if (!mongoose.connection.readyState || !mongoose.models.Setting) {
+      return null;
+    }
+
     if (!settingKey || !settingValue) {
       return null;
     }
 
+    const Model = mongoose.model('Setting');
     const result = await Model.findOneAndUpdate(
       { settingKey },
       {

@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
-const Model = mongoose.model('Setting');
-
 const listBySettingKey = async ({ settingKeyArray = [] }) => {
   try {
-    // Find document by id
+    // Check if database is connected and model is available
+    if (!mongoose.connection.readyState || !mongoose.models.Setting) {
+      return [];
+    }
 
+    const Model = mongoose.model('Setting');
+
+    // Find document by id
     const settingsToShow = { $or: [] };
 
     if (settingKeyArray.length === 0) {
@@ -15,7 +19,7 @@ const listBySettingKey = async ({ settingKeyArray = [] }) => {
     for (const settingKey of settingKeyArray) {
       settingsToShow.$or.push({ settingKey });
     }
-    let results = await Model.find({ ...settings }).where('removed', false);
+    let results = await Model.find({ ...settingsToShow }).where('removed', false);
 
     // If no results found, return document not found
     if (results.length >= 1) {

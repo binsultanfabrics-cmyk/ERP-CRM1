@@ -17,6 +17,22 @@ const createCRUDController = (modelName) => {
     throw new Error(`Model ${modelName} does not exist`);
   }
 
+  // Check if database is connected and model is available
+  if (!mongoose.connection.readyState || !mongoose.models[modelName]) {
+    // Return dummy methods that return appropriate responses when DB is not connected
+    return {
+      create: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      read: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      update: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      delete: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      list: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      listAll: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      search: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      filter: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+      summary: (req, res) => res.status(503).json({ error: 'Database not connected' }),
+    };
+  }
+
   const Model = mongoose.model(modelName);
   let crudMethods = {
     create: (req, res) => create(Model, req, res),
