@@ -48,9 +48,9 @@ export const erp = {
         const result = {
           items: data.result,
           pagination: {
-            current: parseInt(data.pagination.page, 10),
+            current: parseInt(data.pagination?.page || 1, 10),
             pageSize: options?.items || 10,
-            total: parseInt(data.pagination.count, 10),
+            total: parseInt(data.pagination?.count || 0, 10),
           },
         };
         dispatch({

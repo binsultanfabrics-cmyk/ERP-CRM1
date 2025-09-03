@@ -9,3 +9,6 @@
 @import './partials/sidePanel.css';
 @import './partials/collapseBox.css';
 @import './partials/erp.css';
+
+/* Bin Sultan ERP + POS Custom Theme */
+@import './bin-sultan-theme.css';

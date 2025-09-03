@@ -29,6 +29,24 @@ export default ({ mode }) => {
         },
       },
     },
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+      sourcemap: false,
+      minify: 'terser',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+            antd: ['antd', '@ant-design/icons'],
+            charts: ['@ant-design/plots'],
+          },
+        },
+      },
+    },
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(mode),
+    },
   };
   return defineConfig(config);
 };

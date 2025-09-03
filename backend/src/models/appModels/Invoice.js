@@ -34,20 +34,6 @@ const invoiceSchema = new mongoose.Schema({
     required: true,
     autopopulate: true,
   },
-  converted: {
-    from: {
-      type: String,
-      enum: ['quote', 'offer'],
-    },
-    offer: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Offer',
-    },
-    quote: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Quote',
-    },
-  },
   items: [
     {
       // product: {

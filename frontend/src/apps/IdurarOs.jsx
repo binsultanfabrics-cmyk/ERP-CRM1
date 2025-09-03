@@ -6,17 +6,19 @@ import { AppContextProvider } from '@/context/appContext';
 import PageLoader from '@/components/PageLoader';
 import AuthRouter from '@/router/AuthRouter';
 import Localization from '@/locale/Localization';
-import { notification } from 'antd';
+import { notification, App } from 'antd';
 
 const ErpApp = lazy(() => import('./ErpApp'));
 
 const DefaultApp = () => (
   <Localization>
-    <AppContextProvider>
-      <Suspense fallback={<PageLoader />}>
-        <ErpApp />
-      </Suspense>
-    </AppContextProvider>
+    <App>
+      <AppContextProvider>
+        <Suspense fallback={<PageLoader />}>
+          <ErpApp />
+        </Suspense>
+      </AppContextProvider>
+    </App>
   </Localization>
 );
 
@@ -24,7 +26,7 @@ export default function IdurarOs() {
   const { isLoggedIn } = useSelector(selectAuth);
 
   console.log(
-    '🚀 Welcome to IDURAR ERP CRM! Did you know that we also offer commercial customization services? Contact us at hello@idurarapp.com for more information.'
+    '🚀 Welcome to Bin Sultan! Did you know that we also offer commercial customization services? Contact us at hello@binsultan.com for more information.'
   );
 
   // // Online state
@@ -64,7 +66,9 @@ export default function IdurarOs() {
   if (!isLoggedIn)
     return (
       <Localization>
-        <AuthRouter />
+        <App>
+          <AuthRouter />
+        </App>
       </Localization>
     );
   else {

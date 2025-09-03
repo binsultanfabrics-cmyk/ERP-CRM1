@@ -6,13 +6,14 @@ const router = express.Router();
 
 const adminController = require('@/controllers/coreControllers/adminController');
 const settingController = require('@/controllers/coreControllers/settingController');
+const dashboardController = require('@/controllers/coreControllers/dashboardController');
 
 const { singleStorageUpload } = require('@/middlewares/uploadMiddleware');
 
 // //_______________________________ Admin management_______________________________
 
+router.route('/admin/list').get(catchErrors(adminController.list));
 router.route('/admin/read/:id').get(catchErrors(adminController.read));
-
 router.route('/admin/password-update/:id').patch(catchErrors(adminController.updatePassword));
 
 //_______________________________ Admin Profile _______________________________
@@ -51,4 +52,29 @@ router
     catchErrors(settingController.updateBySettingKey)
   );
 router.route('/setting/updateManySetting').patch(catchErrors(settingController.updateManySetting));
+
+// Dashboard Stats Endpoint
+router.route('/dashboard/stats').get(catchErrors(dashboardController.getDashboardStats));
+
+// Reports Endpoints
+const reportsController = require('@/controllers/coreControllers/reportsController');
+router.route('/reports/daily-sales').get(catchErrors(reportsController.getDailySalesSummary));
+router.route('/reports/monthly-profit-loss').get(catchErrors(reportsController.getMonthlyProfitLoss));
+router.route('/reports/top-selling-items').get(catchErrors(reportsController.getTopSellingItems));
+router.route('/reports/bargain-impact').get(catchErrors(reportsController.getBargainImpactReport));
+router.route('/reports/credit-aging').get(catchErrors(reportsController.getCreditAgingReport));
+router.route('/reports/employee-sales').get(catchErrors(reportsController.getEmployeeSalesReport));
+router.route('/reports/inventory-valuation').get(catchErrors(reportsController.getInventoryValuationReport));
+
+// Reminders Endpoints
+const remindersController = require('@/controllers/coreControllers/remindersController');
+router.route('/reminders/credit-aging').get(catchErrors(remindersController.getCreditAgingSummary));
+router.route('/reminders/send-overdue').post(catchErrors(remindersController.sendOverdueReminders));
+router.route('/reminders/settings').get(catchErrors(remindersController.getReminderSettings));
+
+// Setup Endpoints
+const setupController = require('@/controllers/coreControllers/setupController');
+router.route('/setup/erp-features').post(catchErrors(setupController.setupERPFeatures));
+router.route('/setup/reset-erp-features').post(catchErrors(setupController.resetERPFeatures));
+
 module.exports = router;

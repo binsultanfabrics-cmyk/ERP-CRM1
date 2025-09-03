@@ -2,9 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import { Form, Input, InputNumber } from 'antd';
 import { DatePicker } from 'antd';
-import SelectAsync from '@/components/SelectAsync';
 import { useMoney, useDate } from '@/settings';
-
 import useLanguage from '@/locale/useLanguage';
 
 export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) {
@@ -12,6 +10,7 @@ export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) 
   const { TextArea } = Input;
   const money = useMoney();
   const { dateFormat } = useDate();
+  
   return (
     <>
       <Form.Item
@@ -36,7 +35,7 @@ export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) 
             type: 'object',
           },
         ]}
-        initialValue={dayjs().add(30, 'days')}
+        initialValue={dayjs()}
         style={{ width: '100%' }}
       >
         <DatePicker format={dateFormat} style={{ width: '100%' }} />
@@ -52,27 +51,27 @@ export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) 
         />
       </Form.Item>
       <Form.Item
-        label={translate('payment Mode')}
-        name="paymentMode"
+        label={translate('Payment Method')}
+        name="paymentMethod"
         rules={[
           {
             required: true,
           },
         ]}
       >
-        <SelectAsync
-          entity={'paymentMode'}
-          displayLabels={['name']}
-          withRedirect={true}
-          urlToRedirect="/payment/mode"
-          redirectLabel="Add Payment Mode"
-        ></SelectAsync>
+        <Input placeholder="Cash, Card, Bank Transfer, etc." />
       </Form.Item>
-      <Form.Item label={translate('Reference')} name="ref">
-        <Input />
+      <Form.Item
+        label={translate('reference')}
+        name="ref"
+      >
+        <Input placeholder="Transaction ID, check number, etc." />
       </Form.Item>
-      <Form.Item label={translate('Description')} name="description">
-        <TextArea />
+      <Form.Item
+        label={translate('description')}
+        name="description"
+      >
+        <TextArea rows={3} placeholder="Payment description" />
       </Form.Item>
     </>
   );

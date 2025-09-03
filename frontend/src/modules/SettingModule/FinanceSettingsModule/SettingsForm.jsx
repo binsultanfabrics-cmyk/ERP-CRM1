@@ -2,20 +2,10 @@ import { Form, Input, InputNumber, Select, Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import useLanguage from '@/locale/useLanguage';
 
-const formItems = [
+const settings = [
   {
     label: 'last_invoice_number',
     settingKey: 'last_invoice_number',
-    valueType: 'number',
-  },
-  {
-    label: 'last_quote_number',
-    settingKey: 'last_quote_number',
-    valueType: 'number',
-  },
-  {
-    label: 'last_payment_number',
-    settingKey: 'last_payment_number',
     valueType: 'number',
   },
 ];
@@ -25,7 +15,7 @@ export default function SettingForm() {
 
   return (
     <div>
-      {formItems.map((item) => {
+      {settings.map((item) => {
         return (
           <Form.Item
             key={item.settingKey}

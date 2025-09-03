@@ -41,6 +41,7 @@ export const crud = {
       dispatch({
         type: actionTypes.REQUEST_LOADING,
         keyState: 'list',
+        entity,
         payload: null,
       });
 
@@ -50,20 +51,22 @@ export const crud = {
         const result = {
           items: data.result,
           pagination: {
-            current: parseInt(data.pagination.page, 10),
+            current: parseInt(data.pagination?.page || 1, 10),
             pageSize: options?.items,
-            total: parseInt(data.pagination.count, 10),
+            total: parseInt(data.pagination?.count || 0, 10),
           },
         };
         dispatch({
           type: actionTypes.REQUEST_SUCCESS,
           keyState: 'list',
+          entity,
           payload: result,
         });
       } else {
         dispatch({
           type: actionTypes.REQUEST_FAILED,
           keyState: 'list',
+          entity,
           payload: null,
         });
       }

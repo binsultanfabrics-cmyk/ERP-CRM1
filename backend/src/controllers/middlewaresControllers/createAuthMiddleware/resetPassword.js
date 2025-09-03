@@ -61,7 +61,7 @@ const resetPassword = async (req, res, { userModel }) => {
     {
       id: userId,
     },
-    process.env.JWT_SECRET,
+    process.env.JWT_SECRET || 'default-secret-key-for-development',
     { expiresIn: '24h' }
   );
 

@@ -16,7 +16,7 @@ const authUser = async (req, res, { user, databasePassword, password, UserPasswo
       {
         id: user._id,
       },
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET || 'default-secret-key-for-development',
       { expiresIn: req.body.remember ? 365 * 24 + 'h' : '24h' }
     );
 

@@ -1,32 +1,55 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-function useFetchData(fetchFunction) {
+export default function useFetch(fetchFunction) {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [isSuccess, setSuccess] = useState(false);
   const [error, setError] = useState(null);
+  const isMountedRef = useRef(true);
+  const fetchFunctionRef = useRef(fetchFunction);
+
+  // Update the ref when fetchFunction changes
+  useEffect(() => {
+    fetchFunctionRef.current = fetchFunction;
+  }, [fetchFunction]);
 
   useEffect(() => {
+    let isCancelled = false;
+    
     async function fetchData() {
       try {
-        const data = await fetchFunction();
-        setData(data.result);
-        setSuccess(true);
-      } catch (error) {
-        setError(error);
+        setLoading(true);
+        setError(null);
+        const result = await fetchFunctionRef.current();
+        
+        if (!isCancelled && isMountedRef.current) {
+          setData(result.result);
+          setSuccess(true);
+        }
+      } catch (err) {
+        if (!isCancelled && isMountedRef.current) {
+          setError(err);
+          setSuccess(false);
+        }
       } finally {
-        setLoading(false);
+        if (!isCancelled && isMountedRef.current) {
+          setLoading(false);
+        }
       }
     }
 
     fetchData();
-  }, [isLoading]);
 
-  return { data, isLoading, isSuccess, error };
-}
+    return () => {
+      isCancelled = true;
+    };
+  }, [fetchFunction]); // Depend on the actual fetchFunction
 
-export default function useFetch(fetchFunction) {
-  const { data, isLoading, isSuccess, error } = useFetchData(fetchFunction);
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   return { result: data, isLoading, isSuccess, error };
 }

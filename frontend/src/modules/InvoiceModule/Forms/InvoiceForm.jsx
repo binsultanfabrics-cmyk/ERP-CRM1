@@ -246,16 +246,13 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
                 },
               ]}
             >
-              <SelectAsync
-                value={taxRate}
+              <InputNumber
+                min={0}
+                max={100}
+                suffix="%"
+                placeholder="Tax Rate %"
+                style={{ width: '100%' }}
                 onChange={handelTaxChange}
-                entity={'taxes'}
-                outputValue={'taxValue'}
-                displayLabels={['taxName']}
-                withRedirect={true}
-                urlToRedirect="/taxes"
-                redirectLabel={translate('Add New Tax')}
-                placeholder={translate('Select Tax Value')}
               />
             </Form.Item>
           </Col>

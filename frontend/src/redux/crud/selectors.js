@@ -5,6 +5,15 @@ const selectCrud = (state) => state.crud;
 export const selectCurrentItem = createSelector([selectCrud], (crud) => crud.current);
 
 export const selectListItems = createSelector([selectCrud], (crud) => crud.list);
+
+// New selector for entity-specific data
+export const selectEntityList = (entity) =>
+  createSelector([selectCrud], (crud) => crud.entities[entity] || {
+    result: { items: [], pagination: { current: 1, pageSize: 10, total: 0 } },
+    isLoading: false,
+    isSuccess: false,
+  });
+
 export const selectItemById = (itemId) =>
   createSelector(selectListItems, (list) => list.result.items.find((item) => item._id === itemId));
 

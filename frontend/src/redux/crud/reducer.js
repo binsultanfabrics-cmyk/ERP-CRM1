@@ -24,6 +24,8 @@ const INITIAL_STATE = {
     isLoading: false,
     isSuccess: false,
   },
+  // Add entity-specific lists
+  entities: {},
   create: INITIAL_KEY_STATE,
   update: INITIAL_KEY_STATE,
   delete: INITIAL_KEY_STATE,
@@ -32,7 +34,7 @@ const INITIAL_STATE = {
 };
 
 const crudReducer = (state = INITIAL_STATE, action) => {
-  const { payload, keyState } = action;
+  const { payload, keyState, entity } = action;
   switch (action.type) {
     case actionTypes.RESET_STATE:
       return INITIAL_STATE;
@@ -44,6 +46,19 @@ const crudReducer = (state = INITIAL_STATE, action) => {
         },
       };
     case actionTypes.REQUEST_LOADING:
+      if (keyState === 'list' && entity) {
+        // Handle entity-specific list loading
+        return {
+          ...state,
+          entities: {
+            ...state.entities,
+            [entity]: {
+              ...state.entities[entity],
+              isLoading: true,
+            },
+          },
+        };
+      }
       return {
         ...state,
         [keyState]: {
@@ -52,6 +67,20 @@ const crudReducer = (state = INITIAL_STATE, action) => {
         },
       };
     case actionTypes.REQUEST_FAILED:
+      if (keyState === 'list' && entity) {
+        // Handle entity-specific list failure
+        return {
+          ...state,
+          entities: {
+            ...state.entities,
+            [entity]: {
+              ...state.entities[entity],
+              isLoading: false,
+              isSuccess: false,
+            },
+          },
+        };
+      }
       return {
         ...state,
         [keyState]: {
@@ -61,6 +90,20 @@ const crudReducer = (state = INITIAL_STATE, action) => {
         },
       };
     case actionTypes.REQUEST_SUCCESS:
+      if (keyState === 'list' && entity) {
+        // Handle entity-specific list success
+        return {
+          ...state,
+          entities: {
+            ...state.entities,
+            [entity]: {
+              result: payload,
+              isLoading: false,
+              isSuccess: true,
+            },
+          },
+        };
+      }
       return {
         ...state,
         [keyState]: {

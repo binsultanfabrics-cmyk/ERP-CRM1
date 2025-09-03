@@ -1,3 +1,4 @@
+import React, { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { Avatar, Dropdown, Layout, Badge, Button } from 'antd';
@@ -14,24 +15,29 @@ import useLanguage from '@/locale/useLanguage';
 
 import UpgradeButton from './UpgradeButton';
 
-export default function HeaderContent() {
+export default React.memo(function HeaderContent() {
   const currentAdmin = useSelector(selectCurrentAdmin);
   const { Header } = Layout;
 
   const translate = useLanguage();
 
-  const ProfileDropdown = () => {
+  const ProfileDropdown = React.memo(() => {
     const navigate = useNavigate();
+    const handleClick = useCallback(() => {
+      navigate('/profile');
+    }, [navigate]);
+
     return (
-      <div className="profileDropdown" onClick={() => navigate('/profile')}>
+      <div className="profileDropdown" onClick={handleClick}>
         <Avatar
           size="large"
           className="last"
           src={currentAdmin?.photo ? FILE_BASE_URL + currentAdmin?.photo : undefined}
           style={{
-            color: '#f56a00',
-            backgroundColor: currentAdmin?.photo ? 'none' : '#fde3cf',
+            color: '#2563EB',
+            backgroundColor: currentAdmin?.photo ? 'rgba(255, 255, 255, 0.9)' : '#FFFFFF',
             boxShadow: 'rgba(150, 190, 238, 0.35) 0px 0px 6px 1px',
+            opacity: 1,
           }}
         >
           {currentAdmin?.name?.charAt(0)?.toUpperCase()}
@@ -44,13 +50,14 @@ export default function HeaderContent() {
         </div>
       </div>
     );
-  };
+  });
 
-  const DropdownMenu = ({ text }) => {
+  const DropdownMenu = React.memo(({ text }) => {
     return <span style={{}}>{text}</span>;
-  };
+  });
 
-  const items = [
+  // Memoize the dropdown items to prevent unnecessary re-renders
+  const items = useMemo(() => [
     {
       label: <ProfileDropdown className="headerDropDownMenu" />,
       key: 'ProfileDropdown',
@@ -82,17 +89,19 @@ export default function HeaderContent() {
       key: 'logout',
       label: <Link to={'/logout'}>{translate('logout')}</Link>,
     },
-  ];
+  ], [translate, currentAdmin]);
 
   return (
     <Header
       style={{
         padding: '20px',
-        background: '#ffffff',
+        background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
         display: 'flex',
         flexDirection: 'row-reverse',
         justifyContent: 'flex-start',
-        gap: ' 15px',
+        gap: '15px',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        borderBottom: '1px solid #E2E8F0',
       }}
     >
       <Dropdown
@@ -108,11 +117,13 @@ export default function HeaderContent() {
           className="last"
           src={currentAdmin?.photo ? FILE_BASE_URL + currentAdmin?.photo : undefined}
           style={{
-            color: '#f56a00',
-            backgroundColor: currentAdmin?.photo ? 'none' : '#fde3cf',
-            boxShadow: 'rgba(150, 190, 238, 0.35) 0px 0px 10px 2px',
+            color: '#2563EB',
+            backgroundColor: currentAdmin?.photo ? 'rgba(255, 255, 255, 0.9)' : '#FFFFFF',
+            boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.25)',
             float: 'right',
             cursor: 'pointer',
+            border: '2px solid #FFFFFF',
+            opacity: 1,
           }}
           size="large"
         >
@@ -126,8 +137,8 @@ export default function HeaderContent() {
       <UpgradeButton />
     </Header>
   );
-}
+});
 
 //  console.log(
-//    '🚀 Welcome to IDURAR ERP CRM! Did you know that we also offer commercial customization services? Contact us at hello@idurarapp.com for more information.'
+//    '🚀 Welcome to Bin Sultan! Did you know that we also offer commercial customization services? Contact us at hello@binsultan.com for more information.'
 //  );

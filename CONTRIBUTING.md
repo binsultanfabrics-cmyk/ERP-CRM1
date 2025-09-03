@@ -1,56 +1,74 @@
-# Contributing Guidelines
+# Contributing to Bin Sultan ERP CRM
 
-Welcome to the [idurar-erp-crm](<[idurar-erp-crm](https://github.com/idurar/idurar-erp-crm)>) repository! We're excited that you're interested in contributing. Please take a moment to review this document to ensure a smooth collaboration process.
+Welcome to the [bin-sultan-erp-crm](https://github.com/binsultan/bin-sultan-erp-crm) repository! We're excited that you're interested in contributing. Please take a moment to review this document to ensure a smooth collaboration process.
 
-## How to Contribute
+## How to contribute
 
 ### Reporting Issues
 
-If you find a bug or have a suggestion for an enhancement :
+Before creating a new issue:
 
-- please make sure it was not asked before here [issues](https://github.com/idurar/idurar-erp-crm/issues).
-- make sure it is not work in progress here [pull requests](https://github.com/idurar/idurar-erp-crm/pulls).
-- you can then [create an issue](https://github.com/idurar/idurar-erp-crm/issues/new/choose) with the following information:
-  - a short but descriptive title.
-  - a detailed description of the issue or suggestion (if it is a bug include the steps to reproduce it).
+- please make sure it was not asked before here [issues](https://github.com/binsultan/bin-sultan-erp-crm/issues).
+- make sure it is not work in progress here [pull requests](https://github.com/binsultan/bin-sultan-erp-crm/pulls).
+- you can then [create an issue](https://github.com/binsultan/bin-sultan-erp-crm/issues/new/choose) with the following information:
 
-### working on issues
+### Creating Issues
 
-- comment on issues you want to work on and we will assign you to it.
-- we do accept pull requests even if you are not assigned to an issue but we prefer you to comment on the issue first.
+When creating an issue, please include:
+
+1. **Clear Title**: A descriptive title that summarizes the issue
+2. **Description**: Detailed description of the problem or feature request
+3. **Steps to Reproduce**: If it's a bug, include steps to reproduce it
+4. **Expected vs Actual Behavior**: What you expected vs what actually happened
+5. **Environment**: Your operating system, browser version, etc.
+6. **Screenshots**: If applicable, include screenshots or GIFs
+7. **Additional Context**: Any other relevant information
+
+### Working on Issues
+
+1. **Find an Issue**: Look for issues labeled with `good first issue`, `help wanted`, or `bug`
+2. **Comment**: Comment on the issue to let others know you're working on it
+3. **Fork**: Fork the repository to your GitHub account
+4. **Branch**: Create a new branch for your changes
+5. **Code**: Make your changes following our coding guidelines
+6. **Test**: Ensure your changes work correctly
+7. **Commit**: Commit your changes with clear commit messages
+8. **Push**: Push your changes to your fork
+9. **Pull Request**: Create a pull request
 
 ### Submitting Pull Requests
 
-1. Fork the repository and create your own branch from `dev` branch.
-2. follow this format for naming branches:
-   - `features/new-profile-page`
-   - `issues/fix-authentication-issue`
-3. Make sure your code follows our [Coding Guidelines](#coding-guidelines).
-4. Commit your changes using clear and descriptive commit messages .
-5. Push your changes to your forked repository.
-6. Submit a pull request to the `dev` branch of this repository. Please include a detailed description of your changes.
+When submitting a pull request:
 
-We'll review your pull request as soon as possible. Feedback and suggestions are always welcome.
+1. **Title**: Use a clear, descriptive title
+2. **Description**: Explain what changes you made and why
+3. **Issue Reference**: Reference any related issues
+4. **Testing**: Describe how you tested your changes
+5. **Screenshots**: Include screenshots if UI changes were made
 
 ### Commit Guidelines
 
-Commits should be as small as possible, while ensuring that each commit is
-correct independently (i.e., each commit should compile and pass tests).
-Please follow this commit format for your commit messages:
-
-- `feat: add new profile page`
-- `fix: resolve authentication issue`
+- Use clear, descriptive commit messages
+- Start with a verb (e.g., "Add", "Fix", "Update", "Remove")
+- Keep commits focused and atomic
+- Reference issues when applicable
 
 ### Coding Guidelines
 
-- Use consistent coding style and follow best practices for readability.
-- Write clear and concise code comments.
-- Don't update dependencies (antd, redux, craco ... ) as it might break the project( we will update all dependencies soon ).
-- Do not include changes that are not related to the issue at hand.
-- Ensure your code has no conflicts and follows existing patterns.
+- Follow the existing code style and formatting
+- Add comments for complex logic
+- Write meaningful variable and function names
+- Ensure your code is readable and maintainable
+- Add tests for new functionality when possible
 
 ### Questions
 
-If you have any questions, feel free to reach out by creating an issue.
+If you have questions about contributing:
 
-Thank you for contributing to [idurar-erp-crm](https://github.com/idurar/idurar-erp-crm) dont forget to give us a :star: !
+- Check existing issues and pull requests
+- Ask in the issue comments
+- Reach out to the maintainers
+
+## Thank You
+
+Thank you for contributing to [bin-sultan-erp-crm](https://github.com/binsultan/bin-sultan-erp-crm) don't forget to give us a :star: !

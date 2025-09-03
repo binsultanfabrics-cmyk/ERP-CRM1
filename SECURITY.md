@@ -1,60 +1,42 @@
 # Security Policy
 
-## Supported Releases
+## Supported Versions
+
+Use this section to tell people about which versions of your project are currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2.0.1   | :white_check_mark: |
-| 2.0.0   | :white_check_mark: |
+| 4.1.x   | :white_check_mark: |
+| 4.0.x   | :white_check_mark: |
+| < 4.0   | :x:                |
 
 ## Reporting a Vulnerability
 
-Please do not open public github issues or pull requests on this repository for security-related matters. Instead, follow the responsible disclosure process outlined below.
+We take security vulnerabilities seriously. If you discover a security vulnerability, please follow these steps:
 
-### Scope
+1. **Contact Us**: Submit your report to [https://github.com/binsultan/bin-sultan-erp-crm/security](https://github.com/binsultan/bin-sultan-erp-crm/security) with details of the vulnerability. Please provide a clear and concise description of the issue, any potential impact, and a step-by-step demonstration if possible. Please do not publicly disclose the vulnerability until it has been addressed.
 
-This security policy covers the security of this repository and its code. If you discover a security vulnerability related to this repository, please report it responsibly.
+2. **Response Time**: We will acknowledge your report within 48 hours and provide a timeline for addressing the vulnerability.
 
-### Responsible Disclosure Process
+3. **Assessment**: Our security team will assess the reported vulnerability and determine its severity and impact.
 
-#### Option 1: Reporting via Github Security Advisors
+4. **Fix Development**: We will develop a fix for the vulnerability and test it thoroughly.
 
-1. **Contact Us**: Submit your report to [https://github.com/idurar/idurar-erp-crm/security](https://github.com/idurar/idurar-erp-crm/security) with details of the vulnerability. Please provide a clear and concise description of the issue, any potential impact, and a step-by-step demonstration if possible. Please do not include sensitive information in your initial email.
+5. **Release**: Once the fix is ready, we will release an updated version with the security patch.
 
-2. **Confirmation**: We will acknowledge receipt of your report within [X] business days and provide an estimated timeline for when you can expect a response.
+6. **Disclosure**: After the fix is released, we will publicly acknowledge the vulnerability and credit the reporter (if they wish to be credited).
 
-3. **Investigation**: We will investigate the issue, which may involve reproducing the vulnerability or seeking further information from you.
+## Security Best Practices
 
-4. **Resolution**: Once the vulnerability is confirmed, we will work to address it promptly and develop a fix.
+- Keep your dependencies updated
+- Use strong authentication and authorization
+- Implement proper input validation
+- Use HTTPS in production
+- Regularly backup your data
+- Monitor for suspicious activities
 
-5. **Disclosure**: We will coordinate with you regarding the public disclosure of the vulnerability. We aim to release a security advisory with information about the issue and the fix.
+## Contact
 
-6. **Credit**: If you report a vulnerability that is successfully fixed, we will credit you for your responsible disclosure in the security advisory unless you prefer to remain anonymous.
+For security-related issues, please use the GitHub Security tab or contact us directly at security@binsultan.com.
 
-#### Option 2: Reporting via Huntr.dev
-
-Alternatively, you can report vulnerabilities through [Huntr.dev](https://huntr.dev). Follow these steps:
-
-1. **Submit Report**: Create a report for this repository on Huntr.dev, providing details of the vulnerability. Include a link to this repository in your report.
-
-2. **Confirmation**: We will be notified of your report on Huntr.dev and will acknowledge it within [X] business days.
-
-3. **Investigation**: We will investigate the issue, which may involve reproducing the vulnerability or seeking further information from you.
-
-4. **Resolution**: Once the vulnerability is confirmed, we will work to address it promptly and develop a fix.
-
-5. **Disclosure**: We will coordinate with you regarding the public disclosure of the vulnerability. We aim to release a security advisory with information about the issue and the fix.
-
-6. **Credit**: If you report a vulnerability that is successfully fixed, we will credit you for your responsible disclosure in the security advisory unless you prefer to remain anonymous.
-
-### Safe Harbor
-
-We consider security research conducted under this policy to be:
-
-- Authorized concerning any applicable anti-hacking laws, and we won't initiate legal action against researchers for their findings.
-
-- Subject to responsible disclosure, where we work with researchers to understand and address reported vulnerabilities before public disclosure.
-
-We appreciate your contributions to the security of this project and community.
-
-Thank you!
+Thank you for helping keep Bin Sultan ERP CRM secure!

@@ -213,8 +213,8 @@ const lang = {
   lead: 'Lead',
   offer: 'Offer',
   invoice: 'Invoice',
-  quote: 'Quote',
-  payment: 'Payment',
+
+
   product: 'Product',
   product_category: 'Product Category',
   expense: 'Expense',
@@ -222,9 +222,9 @@ const lang = {
   settings: 'Settings',
   admin: 'Admin',
   currency: 'Currency',
-  payment_mode: 'Payment Mode',
-  taxes: 'Taxes',
-  about: 'About',
+
+
+
   profile_settings: 'Profile Settings',
   app_settings: 'App Settings',
   logout: 'Logout',
@@ -233,14 +233,14 @@ const lang = {
   total: 'Total',
   status: 'Status',
   invoices_preview: 'Invoices Preview',
-  quotes_preview: 'Quotes Preview',
+
   offers_preview: 'Offers Preview',
-  payments_preview: 'Payments Preview',
+
   this_month: 'This Month',
   unpaid: 'Unpaid',
   not_paid: 'Not Paid',
   recent_invoices: 'Recent Invoices',
-  recent_quotes: 'Recent Quotes',
+
   customer_preview: 'Customer Preview',
   show: 'Show',
   edit: 'Edit',
@@ -307,9 +307,7 @@ const lang = {
   select_default_currency: 'Select Default Currency',
   update_company_finance_settings: 'Update Company Finance Settings',
   last_invoice_number: 'Last Invoice Number',
-  last_quote_number: 'Last Quote Number',
   last_offer_number: 'Last Offer Number',
-  last_payment_number: 'Last Payment Number',
   client_list: 'Client List',
   add_new_client: 'Add New Client',
   delete: 'Delete',
@@ -363,15 +361,15 @@ const lang = {
   description: 'Description',
   quantity: 'Quantity',
   price: 'Price',
-  add_new_tax: 'Add New Tax',
-  select_tax_value: 'Select Tax Value',
+
+
   add_field: 'Add Field',
   error_404: 'Error 404',
   sorry_the_page_you_requested_does_not_exist: 'Sorry The Page You Requested Does Not Exist',
   back: 'Back',
   download_pdf: 'Download Pdf',
   send_by_email: 'Send By Email',
-  convert_to_invoice: 'Convert To Invoice',
+
   subtotal: 'Subtotal',
   address: 'Address',
   update: 'Update',
@@ -386,11 +384,8 @@ const lang = {
   discount: 'Discount',
   amount: 'Amount',
   reference: 'Reference',
-  add_payment_mode: 'Add Payment Mode',
-  quote_list: 'Quote List',
-  add_new_quote: 'Add New Quote',
-  payment_list: 'Payment List',
-  add_new_payment: 'Add New Payment',
+
+
   payment_information: 'Payment Information',
   total_paid: 'Total Paid',
   total_remaining: 'Total Remaining',
@@ -424,11 +419,11 @@ const lang = {
   cent_precision: 'Cent Precision',
   zero_format: 'Zero Format',
   default: 'Default',
-  payment_mode_list: 'Payment Mode List',
-  add_new_payment_mode: 'Add New Payment Mode',
+
+
   default_mode: 'Default Mode',
   value: 'Value',
-  taxes_list: 'Taxes List',
+
   do_you_need_help_on_customize_of_this_app: 'Do You Need Help On Customize Of This App',
   contact_us: 'Contact Us',
   customers: 'Customers',
@@ -437,18 +432,18 @@ const lang = {
   leads: 'Leads',
   offer_leads: 'Offer Leads',
   invoices: 'Invoices',
-  quotes: 'Quotes',
-  payments: 'Payments',
+
+
   products: 'Products',
   products_category: 'Products Category',
   expenses: 'Expenses',
   currencies: 'Currencies',
-  payments_mode: 'Payments Mode',
+
   account_owner: 'Account Owner',
   create_only: 'Create Only',
   enter_code: 'Enter Code',
   offers: 'Offers',
-  proforma_invoices: 'quote',
+
   search: 'search',
 };
 

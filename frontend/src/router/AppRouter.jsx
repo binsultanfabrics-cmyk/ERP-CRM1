@@ -1,4 +1,4 @@
-import { lazy, useEffect } from 'react';
+import React, { lazy, useEffect, useCallback, useMemo } from 'react';
 
 import {} from 'react-router-dom';
 import {} from 'react-router-dom';
@@ -7,18 +7,22 @@ import { useAppContext } from '@/context/appContext';
 
 import routes from './routes';
 
-export default function AppRouter() {
+export default React.memo(function AppRouter() {
   let location = useLocation();
   const { state: stateApp, appContextAction } = useAppContext();
   const { app } = appContextAction;
 
-  const routesList = [];
+  // Memoize the routes list to prevent unnecessary re-computations
+  const routesList = useMemo(() => {
+    const list = [];
+    Object.entries(routes).forEach(([key, value]) => {
+      list.push(...value);
+    });
+    return list;
+  }, []);
 
-  Object.entries(routes).forEach(([key, value]) => {
-    routesList.push(...value);
-  });
-
-  function getAppNameByPath(path) {
+  // Memoize the app name getter function
+  const getAppNameByPath = useCallback((path) => {
     for (let key in routes) {
       for (let i = 0; i < routes[key].length; i++) {
         if (routes[key][i].path === path) {
@@ -28,7 +32,9 @@ export default function AppRouter() {
     }
     // Return 'default' app  if the path is not found
     return 'default';
-  }
+  }, []);
+
+  // Optimize the app switching logic - only run when pathname changes
   useEffect(() => {
     if (location.pathname === '/') {
       app.default();
@@ -36,9 +42,9 @@ export default function AppRouter() {
       const path = getAppNameByPath(location.pathname);
       app.open(path);
     }
-  }, [location]);
+  }, [location.pathname]); // Remove app and getAppNameByPath from dependencies to prevent infinite loops
 
   let element = useRoutes(routesList);
 
   return element;
-}
+});

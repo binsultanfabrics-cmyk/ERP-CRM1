@@ -1,4 +1,4 @@
-import { Button, Form, message, Upload } from 'antd';
+import { Button, Form, Upload, App } from 'antd';
 
 import { UploadOutlined } from '@ant-design/icons';
 
@@ -6,6 +6,8 @@ import useLanguage from '@/locale/useLanguage';
 
 export default function AppSettingForm() {
   const translate = useLanguage();
+  const { message } = App.useApp(); // Use App context for message API
+  
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
     if (!isJpgOrPng) {

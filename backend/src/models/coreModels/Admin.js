@@ -28,9 +28,13 @@ const adminSchema = new Schema({
     default: Date.now,
   },
   role: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Role',
+  },
+  systemRole: {
     type: String,
     default: 'owner',
-    enum: ['owner'],
+    enum: ['owner', 'admin', 'manager', 'cashier'],
   },
 });
 

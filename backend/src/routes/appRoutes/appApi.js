@@ -16,12 +16,21 @@ const routerApp = (entity, controller) => {
   router.route(`/${entity}/filter`).get(catchErrors(controller['filter']));
   router.route(`/${entity}/summary`).get(catchErrors(controller['summary']));
 
-  if (entity === 'invoice' || entity === 'quote' || entity === 'payment') {
+  if (entity === 'invoice') {
     router.route(`/${entity}/mail`).post(catchErrors(controller['mail']));
   }
-
-  if (entity === 'quote') {
-    router.route(`/${entity}/convert/:id`).get(catchErrors(controller['convert']));
+  
+  // Custom routes for specific entities
+  if (entity === 'purchaseorder') {
+    router.route(`/${entity}/updateStatus/:id`).patch(catchErrors(controller['updateStatus']));
+    router.route(`/${entity}/receive/:id`).post(catchErrors(controller['receive']));
+    router.route(`/${entity}/close/:id`).patch(catchErrors(controller['close']));
+  }
+  
+  if (entity === 'location') {
+    router.route(`/${entity}/inventory/:locationId`).get(catchErrors(controller['getInventory']));
+    router.route(`/${entity}/transfer`).post(catchErrors(controller['transferStock']));
+    router.route(`/${entity}/transferHistory`).get(catchErrors(controller['getTransferHistory']));
   }
 };
 

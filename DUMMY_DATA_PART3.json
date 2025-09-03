@@ -1,0 +1,948 @@
+{
+  "ledgerEntries": [
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Customer",
+      "partyId": "507f1f77bcf86cd799439011",
+      "partyModel": "Client",
+      "entryType": "Sale",
+      "debit": 0.00,
+      "credit": 862.50,
+      "balance": 862.50,
+      "date": "2024-01-15T10:30:00.000Z",
+      "refId": "507f1f77bcf86cd799439011",
+      "refModel": "PosSale",
+      "description": "Sale transaction for cotton fabric",
+      "notes": "Standard sale entry",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-15T10:30:00.000Z",
+      "updated": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Customer",
+      "partyId": "507f1f77bcf86cd799439012",
+      "partyModel": "Client",
+      "entryType": "Payment",
+      "debit": 690.00,
+      "credit": 0.00,
+      "balance": 0.00,
+      "date": "2024-01-16T14:20:00.000Z",
+      "refId": "507f1f77bcf86cd799439012",
+      "refModel": "Payment",
+      "description": "Payment received for silk fabric",
+      "notes": "Full payment received",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-16T14:20:00.000Z",
+      "updated": "2024-01-16T14:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Supplier",
+      "partyId": "507f1f77bcf86cd799439051",
+      "partyModel": "Supplier",
+      "entryType": "Purchase",
+      "debit": 12000.00,
+      "credit": 0.00,
+      "balance": 12000.00,
+      "date": "2024-01-01T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439051",
+      "refModel": "Purchase",
+      "description": "Purchase of cotton fabric rolls",
+      "notes": "Bulk purchase from supplier",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-01T00:00:00.000Z",
+      "updated": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Employee",
+      "partyId": "507f1f77bcf86cd799439031",
+      "partyModel": "Employee",
+      "entryType": "Salary",
+      "debit": 50000.00,
+      "credit": 0.00,
+      "balance": 50000.00,
+      "date": "2024-01-31T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439031",
+      "refModel": "Payroll",
+      "description": "Monthly salary payment",
+      "notes": "January 2024 salary",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-01-31T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Employee",
+      "partyId": "507f1f77bcf86cd799439032",
+      "partyModel": "Employee",
+      "entryType": "Commission",
+      "debit": 2500.00,
+      "credit": 0.00,
+      "balance": 2500.00,
+      "date": "2024-01-31T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439032",
+      "refModel": "Payroll",
+      "description": "Sales commission for January",
+      "notes": "5% commission on sales",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-01-31T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Customer",
+      "partyId": "507f1f77bcf86cd799439013",
+      "partyModel": "Client",
+      "entryType": "Return",
+      "debit": 0.00,
+      "credit": 345.00,
+      "balance": 345.00,
+      "date": "2024-01-20T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439013",
+      "refModel": "PosReturn",
+      "description": "Return of wool fabric",
+      "notes": "Customer returned defective fabric",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-20T00:00:00.000Z",
+      "updated": "2024-01-20T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Supplier",
+      "partyId": "507f1f77bcf86cd799439052",
+      "partyModel": "Supplier",
+      "entryType": "Payment",
+      "debit": 0.00,
+      "credit": 12000.00,
+      "balance": 0.00,
+      "date": "2024-01-05T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439052",
+      "refModel": "Payment",
+      "description": "Payment to supplier for silk fabric",
+      "notes": "Full payment made",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-05T00:00:00.000Z",
+      "updated": "2024-01-05T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Employee",
+      "partyId": "507f1f77bcf86cd799439033",
+      "partyModel": "Employee",
+      "entryType": "Advance",
+      "debit": 10000.00,
+      "credit": 0.00,
+      "balance": 10000.00,
+      "date": "2024-01-10T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439033",
+      "refModel": "Payroll",
+      "description": "Advance salary payment",
+      "notes": "Emergency advance requested",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-10T00:00:00.000Z",
+      "updated": "2024-01-10T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Customer",
+      "partyId": "507f1f77bcf86cd799439014",
+      "partyModel": "Client",
+      "entryType": "Adjustment",
+      "debit": 0.00,
+      "credit": 50.00,
+      "balance": 50.00,
+      "date": "2024-01-25T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439014",
+      "refModel": "Adjustment",
+      "description": "Price adjustment for customer complaint",
+      "notes": "Compensation for service issue",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-25T00:00:00.000Z",
+      "updated": "2024-01-25T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "partyType": "Supplier",
+      "partyId": "507f1f77bcf86cd799439053",
+      "partyModel": "Supplier",
+      "entryType": "Purchase",
+      "debit": 24000.00,
+      "credit": 0.00,
+      "balance": 24000.00,
+      "date": "2024-01-03T00:00:00.000Z",
+      "refId": "507f1f77bcf86cd799439053",
+      "refModel": "Purchase",
+      "description": "Purchase of wool fabric rolls",
+      "notes": "Premium wool fabric purchase",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-03T00:00:00.000Z",
+      "updated": "2024-01-03T00:00:00.000Z"
+    }
+  ],
+  "payrolls": [
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439031",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 50000.00,
+          "description": "Monthly base salary"
+        },
+        {
+          "type": "Commission",
+          "amount": 5000.00,
+          "description": "Sales commission"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 5500.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 1000.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 55000.00,
+      "totalDeductions": 6500.00,
+      "netPay": 48500.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY001",
+      "salesTarget": 100000.00,
+      "actualSales": 120000.00,
+      "commissionEarned": 5000.00,
+      "notes": "Excellent performance this month",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439032",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 30000.00,
+          "description": "Monthly base salary"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 3000.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 600.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 30000.00,
+      "totalDeductions": 3600.00,
+      "netPay": 26400.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY002",
+      "salesTarget": 50000.00,
+      "actualSales": 45000.00,
+      "commissionEarned": 0.00,
+      "notes": "Fixed salary employee",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439033",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 20000.00,
+          "description": "Monthly base salary"
+        },
+        {
+          "type": "Commission",
+          "amount": 8000.00,
+          "description": "Sales commission"
+        },
+        {
+          "type": "Bonus",
+          "amount": 2000.00,
+          "description": "Performance bonus"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 3000.00,
+          "description": "Income tax"
+        }
+      ],
+      "totalEarnings": 30000.00,
+      "totalDeductions": 3000.00,
+      "netPay": 27000.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY003",
+      "salesTarget": 80000.00,
+      "actualSales": 100000.00,
+      "commissionEarned": 8000.00,
+      "notes": "Top performer of the month",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439034",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 25000.00,
+          "description": "Monthly base salary"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 2500.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 500.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 25000.00,
+      "totalDeductions": 3000.00,
+      "netPay": 22000.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY004",
+      "salesTarget": 0.00,
+      "actualSales": 0.00,
+      "commissionEarned": 0.00,
+      "notes": "Helper position - no sales target",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439035",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 25000.00,
+          "description": "Monthly base salary"
+        },
+        {
+          "type": "Commission",
+          "amount": 3000.00,
+          "description": "Sales commission"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 2800.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 560.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 28000.00,
+      "totalDeductions": 3360.00,
+      "netPay": 24640.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY005",
+      "salesTarget": 60000.00,
+      "actualSales": 50000.00,
+      "commissionEarned": 3000.00,
+      "notes": "Good performance",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439036",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 28000.00,
+          "description": "Monthly base salary"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 2800.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 560.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 28000.00,
+      "totalDeductions": 3360.00,
+      "netPay": 24640.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY006",
+      "salesTarget": 0.00,
+      "actualSales": 0.00,
+      "commissionEarned": 0.00,
+      "notes": "Cashier position - no sales target",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439037",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 22000.00,
+          "description": "Monthly base salary"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 2200.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 440.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 22000.00,
+      "totalDeductions": 2640.00,
+      "netPay": 19360.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY007",
+      "salesTarget": 0.00,
+      "actualSales": 0.00,
+      "commissionEarned": 0.00,
+      "notes": "Helper position - no sales target",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439038",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 18000.00,
+          "description": "Monthly base salary"
+        },
+        {
+          "type": "Commission",
+          "amount": 10000.00,
+          "description": "Sales commission"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 2800.00,
+          "description": "Income tax"
+        }
+      ],
+      "totalEarnings": 28000.00,
+      "totalDeductions": 2800.00,
+      "netPay": 25200.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY008",
+      "salesTarget": 80000.00,
+      "actualSales": 125000.00,
+      "commissionEarned": 10000.00,
+      "notes": "Excellent sales performance",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439039",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 45000.00,
+          "description": "Monthly base salary"
+        },
+        {
+          "type": "Commission",
+          "amount": 2000.00,
+          "description": "Sales commission"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 4700.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 940.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 47000.00,
+      "totalDeductions": 5640.00,
+      "netPay": 41360.00,
+      "paid": true,
+      "paidAt": "2024-02-01T00:00:00.000Z",
+      "paymentMethod": "Bank Transfer",
+      "paymentReference": "PAY009",
+      "salesTarget": 100000.00,
+      "actualSales": 25000.00,
+      "commissionEarned": 2000.00,
+      "notes": "Manager position with team performance",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employee": "507f1f77bcf86cd799439040",
+      "period": {
+        "month": 1,
+        "year": 2024
+      },
+      "earnings": [
+        {
+          "type": "Base Salary",
+          "amount": 26000.00,
+          "description": "Monthly base salary"
+        }
+      ],
+      "deductions": [
+        {
+          "type": "Tax",
+          "amount": 2600.00,
+          "description": "Income tax"
+        },
+        {
+          "type": "Insurance",
+          "amount": 520.00,
+          "description": "Health insurance"
+        }
+      ],
+      "totalEarnings": 26000.00,
+      "totalDeductions": 3120.00,
+      "netPay": 22880.00,
+      "paid": false,
+      "paidAt": null,
+      "paymentMethod": null,
+      "paymentReference": null,
+      "salesTarget": 0.00,
+      "actualSales": 0.00,
+      "commissionEarned": 0.00,
+      "notes": "New employee - pending payment",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-31T00:00:00.000Z",
+      "updated": "2024-01-31T00:00:00.000Z"
+    }
+  ],
+  "posSales": [
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439011",
+      "employee": "507f1f77bcf86cd799439031",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439021",
+          "roll": "507f1f77bcf86cd799439061",
+          "quantity": 5,
+          "unit": "m",
+          "unitPrice": 150.00,
+          "total": 750.00
+        }
+      ],
+      "subtotal": 750.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 112.50,
+      "grandTotal": 862.50,
+      "paymentMethod": "Cash",
+      "receivedAmount": 900.00,
+      "change": 37.50,
+      "status": "completed",
+      "notes": "Standard sale",
+      "receiptNumber": "RCP001",
+      "date": "2024-01-15T10:30:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-15T10:30:00.000Z",
+      "updated": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439012",
+      "employee": "507f1f77bcf86cd799439032",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439022",
+          "roll": "507f1f77bcf86cd799439062",
+          "quantity": 3,
+          "unit": "m",
+          "unitPrice": 200.00,
+          "total": 600.00
+        }
+      ],
+      "subtotal": 600.00,
+      "discount": 50.00,
+      "bargainDiscount": 0.00,
+      "tax": 82.50,
+      "grandTotal": 632.50,
+      "paymentMethod": "Credit Card",
+      "receivedAmount": 632.50,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "Bulk purchase discount",
+      "receiptNumber": "RCP002",
+      "date": "2024-01-16T14:20:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-16T14:20:00.000Z",
+      "updated": "2024-01-16T14:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439013",
+      "employee": "507f1f77bcf86cd799439033",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439023",
+          "roll": "507f1f77bcf86cd799439063",
+          "quantity": 2,
+          "unit": "m",
+          "unitPrice": 300.00,
+          "total": 600.00
+        }
+      ],
+      "subtotal": 600.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 90.00,
+      "grandTotal": 690.00,
+      "paymentMethod": "Bank Transfer",
+      "receivedAmount": 345.00,
+      "change": 0.00,
+      "status": "pending",
+      "notes": "Partial payment received",
+      "receiptNumber": "RCP003",
+      "date": "2024-01-17T09:15:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-17T09:15:00.000Z",
+      "updated": "2024-01-17T09:15:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439014",
+      "employee": "507f1f77bcf86cd799439034",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439024",
+          "roll": "507f1f77bcf86cd799439064",
+          "quantity": 4,
+          "unit": "m",
+          "unitPrice": 120.00,
+          "total": 480.00
+        }
+      ],
+      "subtotal": 480.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 72.00,
+      "grandTotal": 552.00,
+      "paymentMethod": "Mobile Payment",
+      "receivedAmount": 552.00,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "Mobile payment via JazzCash",
+      "receiptNumber": "RCP004",
+      "date": "2024-01-18T16:45:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-18T16:45:00.000Z",
+      "updated": "2024-01-18T16:45:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439015",
+      "employee": "507f1f77bcf86cd799439035",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439025",
+          "roll": "507f1f77bcf86cd799439065",
+          "quantity": 6,
+          "unit": "m",
+          "unitPrice": 180.00,
+          "total": 1080.00
+        }
+      ],
+      "subtotal": 1080.00,
+      "discount": 100.00,
+      "bargainDiscount": 0.00,
+      "tax": 147.00,
+      "grandTotal": 1127.00,
+      "paymentMethod": "Cash",
+      "receivedAmount": 1127.00,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "Bulk order discount",
+      "receiptNumber": "RCP005",
+      "date": "2024-01-19T11:30:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-19T11:30:00.000Z",
+      "updated": "2024-01-19T11:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439016",
+      "employee": "507f1f77bcf86cd799439036",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439026",
+          "roll": "507f1f77bcf86cd799439066",
+          "quantity": 3,
+          "unit": "m",
+          "unitPrice": 250.00,
+          "total": 750.00
+        }
+      ],
+      "subtotal": 750.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 112.50,
+      "grandTotal": 862.50,
+      "paymentMethod": "Credit",
+      "receivedAmount": 0.00,
+      "change": 0.00,
+      "status": "pending",
+      "notes": "Credit sale - payment pending",
+      "receiptNumber": "RCP006",
+      "date": "2024-01-20T13:20:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-20T13:20:00.000Z",
+      "updated": "2024-01-20T13:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439017",
+      "employee": "507f1f77bcf86cd799439037",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439027",
+          "roll": "507f1f77bcf86cd799439067",
+          "quantity": 2,
+          "unit": "m",
+          "unitPrice": 90.00,
+          "total": 180.00
+        }
+      ],
+      "subtotal": 180.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 27.00,
+      "grandTotal": 207.00,
+      "paymentMethod": "Cash",
+      "receivedAmount": 207.00,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "Student discount applied",
+      "receiptNumber": "RCP007",
+      "date": "2024-01-21T15:10:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-21T15:10:00.000Z",
+      "updated": "2024-01-21T15:10:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439018",
+      "employee": "507f1f77bcf86cd799439038",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439028",
+          "roll": "507f1f77bcf86cd799439068",
+          "quantity": 4,
+          "unit": "m",
+          "unitPrice": 160.00,
+          "total": 640.00
+        }
+      ],
+      "subtotal": 640.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 96.00,
+      "grandTotal": 736.00,
+      "paymentMethod": "Credit Card",
+      "receivedAmount": 736.00,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "VIP customer",
+      "receiptNumber": "RCP008",
+      "date": "2024-01-22T12:00:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-22T12:00:00.000Z",
+      "updated": "2024-01-22T12:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439019",
+      "employee": "507f1f77bcf86cd799439039",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439029",
+          "roll": "507f1f77bcf86cd799439069",
+          "quantity": 1,
+          "unit": "m",
+          "unitPrice": 220.00,
+          "total": 220.00
+        }
+      ],
+      "subtotal": 220.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 33.00,
+      "grandTotal": 253.00,
+      "paymentMethod": "Cash",
+      "receivedAmount": 253.00,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "Cash payment discount",
+      "receiptNumber": "RCP009",
+      "date": "2024-01-23T17:30:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-23T17:30:00.000Z",
+      "updated": "2024-01-23T17:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "customer": "507f1f77bcf86cd799439020",
+      "employee": "507f1f77bcf86cd799439040",
+      "items": [
+        {
+          "product": "507f1f77bcf86cd799439030",
+          "roll": "507f1f77bcf86cd799439070",
+          "quantity": 1,
+          "unit": "m",
+          "unitPrice": 140.00,
+          "total": 140.00
+        }
+      ],
+      "subtotal": 140.00,
+      "discount": 0.00,
+      "bargainDiscount": 0.00,
+      "tax": 21.00,
+      "grandTotal": 161.00,
+      "paymentMethod": "Cash",
+      "receivedAmount": 161.00,
+      "change": 0.00,
+      "status": "completed",
+      "notes": "End of day sale",
+      "receiptNumber": "RCP010",
+      "date": "2024-01-24T19:45:00.000Z",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-24T19:45:00.000Z",
+      "updated": "2024-01-24T19:45:00.000Z"
+    }
+  ]
+}

@@ -48,9 +48,9 @@ export const erp = {
         const result = {
           items: data.result,
           pagination: {
-            current: parseInt(data.pagination.page, 10),
+            current: parseInt(data.pagination?.page || 1, 10),
             pageSize: options?.items || 10,
-            total: parseInt(data.pagination.count, 10),
+            total: parseInt(data.pagination?.count || 0, 10),
           },
         };
         dispatch({
@@ -296,4 +296,36 @@ export const erp = {
     async () => {
       await request.convert({ entity, id });
     },
+
+  dashboardStats: () => async (dispatch) => {
+    dispatch({
+      type: actionTypes.REQUEST_LOADING,
+      keyState: 'dashboardStats',
+      payload: null,
+    });
+
+    try {
+      const data = await request.get({ entity: 'dashboard/stats' });
+
+      if (data.success === true) {
+        dispatch({
+          type: actionTypes.REQUEST_SUCCESS,
+          keyState: 'dashboardStats',
+          payload: data.result,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.REQUEST_FAILED,
+          keyState: 'dashboardStats',
+          payload: null,
+        });
+      }
+    } catch (error) {
+      dispatch({
+        type: actionTypes.REQUEST_FAILED,
+        keyState: 'dashboardStats',
+        payload: null,
+      });
+    }
+  },
 };

@@ -1,5 +1,5 @@
 {
-  "name": "idurar-erp-crm",
+  "name": "bin-sultan-erp-crm",
   "version": "4.1.0",
   "engines": {
     "node": "20.9.0",
@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^2.2.1",
     "@vitejs/plugin-react": "^4.3.1",
     "antd": "^5.14.1",
+    "@ant-design/plots": "^2.1.11",
     "axios": "^1.6.2",
     "cross-env": "7.0.3",
     "currency.js": "2.0.4",

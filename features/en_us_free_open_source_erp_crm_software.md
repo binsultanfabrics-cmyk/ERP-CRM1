@@ -1,76 +1,56 @@
-# IDURAR Open-Source ERP & CRM Software
+# Bin Sultan Free Open Source ERP & CRM Software
 
-GitHub: [https://github.com/idurar/idurar-erp-crm](https://github.com/idurar/idurar-erp-crm)
-Demo: [https://www.idurarapp.com/open-source-erp-crm/](https://www.idurarapp.com/open-source-erp-crm/)
-Website: [https://www.idurarapp.com](https://www.idurarapp.com)
+GitHub: [https://github.com/binsultan/bin-sultan-erp-crm](https://github.com/binsultan/bin-sultan-erp-crm)
+Demo: [https://www.binsultan.com/open-source-erp-crm/](https://www.binsultan.com/open-source-erp-crm/)
+Website: [https://www.binsultan.com](https://www.binsultan.com)
 
-## Sofware Stack
+## 🚀 **Free Open Source ERP / CRM Software**
 
-IDURAR is a free open-source ERP & CRM app based on the "mern-stack". It utilizes the following technologies: Node.js, React.js, Redux, Express.js, MongoDB, and AntDesign (AntD).
+Bin Sultan is Free Open Source ERP / CRM App Based on "Mern-Stack" : Node.js React.js Redux Express.js MongoDB AntDesign (AntD)
 
-## User Management:
+## 🎯 **Features**
 
-- Administrators can create, edit, and delete user accounts.
-- Role-based access control is implemented to manage user permissions.
-- Authentication and authorization mechanisms ensure secure access.
+- ✅ **Invoice Management** - Create, edit, and manage invoices
+- ✅ **Customer Management** - Manage customer relationships
+- ✅ **Product Management** - Track products and inventory
+- ✅ **Financial Reports** - Generate comprehensive financial reports
+- ✅ **Multi-language Support** - Available in multiple languages
+- ✅ **Responsive Design** - Works on all devices
+- ✅ **Real-time Updates** - Live data synchronization
+- ✅ **User Management** - Role-based access control
 
-## Customer Relationship Management (CRM):
+## 🏗️ **Architecture**
 
-- Users can create and manage contact records for leads, prospects, and customers.
-- Lead generation and qualification functionalities are implemented to track potential sales opportunities.
-- Tools are provided for managing customer communication history, including emails, calls, and meetings.
-- Users can schedule appointments and send notifications or reminders to customers.
+Bin Sultan is Open "Fair-Code" Source ERP / CRM (Invoice / Inventory / Accounting / HR) Based on Mern Stack (Node.js / Express.js / MongoDb / React.js ) with Ant Design (AntD) and Redux
 
-## Sales Management:
+## 🚀 **Quick Start**
 
-- Users can create and manage sales orders, associating them with specific customers.
-- Inventory tracking is implemented to check product availability and update stock levels after each sale.
-- Invoices are generated and payment integration with popular payment gateways is handled.
-- Dashboards and reports are provided to monitor sales performance and analyze trends.
+```bash
+# Clone the repository
+git clone https://github.com/binsultan/bin-sultan-erp-crm.git
 
-## Purchase Management:
+# Navigate to the project directory
+cd bin-sultan-erp-crm
 
-- Users can create and manage purchase orders, specifying the quantity and desired products.
-- Supplier information is tracked and supplier relationships are managed.
-- Goods are received and inventory levels are updated accordingly.
-- Purchase invoices and payments to suppliers are handled.
+# Install dependencies
+npm run install:all
 
-## Inventory Management:
+# Start development server
+npm run dev
+```
 
-- Tools are provided to manage and track inventory levels, including stock transfers and adjustments.
-- Automatic notifications for low stock levels are set up, and purchase orders are generated when restocking is required.
-- Barcode scanning capabilities are offered for efficient inventory management.
-- Users can categorize products, define attributes, and set pricing information.
+## 📚 **Documentation**
 
-## Financial Management:
+For detailed documentation, visit our [Wiki](https://github.com/binsultan/bin-sultan-erp-crm/wiki)
 
-- A general ledger system is implemented to track financial transactions, including expenses and revenue.
-- Accounts receivable and accounts payable are managed, including invoicing and payment tracking.
-- Financial reports, including balance sheets and income statements, are generated.
-- Integration with popular accounting software allows for seamless financial management.
+## 🤝 **Contributing**
 
-## Project Management:
+We welcome contributions! Please see our [Contributing Guide](https://github.com/binsultan/bin-sultan-erp-crm/blob/master/CONTRIBUTING.md) for details.
 
-- Project management capabilities are provided, allowing users to create and track projects.
-- Tasks can be assigned to team members, deadlines can be set, and progress can be monitored.
-- Resources can be allocated and project expenses can be tracked.
-- Collaboration features such as document sharing and real-time communication are offered.
+## 📄 **License**
 
-## Reporting and Analytics:
+Bin Sultan is Free Open Source Released under the GNU Affero General Public License v3.0.
 
-- Comprehensive reports and analytics are generated on various aspects of the business.
-- Customizable dashboards are provided to monitor key performance indicators (KPIs).
-- Users can define custom reports based on specific requirements.
-- Data visualization techniques are implemented to present information in a visually appealing manner.
+## 🌟 **Support**
 
-## Integration and Customization:
-
-- Integration with popular third-party applications or APIs, such as email marketing tools or CRM platforms, is enabled.
-- The app's functionality and appearance can be customized based on specific business needs.
-- An API or webhooks are provided to facilitate data exchange between the ERP & CRM app and other systems.
-
-## User-friendly Interface:
-
-- An intuitive, responsive, and user-friendly interface is designed using React.js and Ant Design.
-- Easy-to-use navigation menus, search functionalities, and filters are implemented.
-- A consistent and visually appealing UI is ensured across different devices and screen sizes.
+If you find this project helpful, please give it a ⭐️ on GitHub!

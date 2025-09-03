@@ -1,2 +1,3 @@
 const createUserController = require('@/controllers/middlewaresControllers/createUserController');
-module.exports = createUserController('Admin');
+const Admin = require('@/models/coreModels/Admin');
+module.exports = createUserController(Admin);
