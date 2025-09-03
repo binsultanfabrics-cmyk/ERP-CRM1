@@ -15,10 +15,9 @@ import {
   FileTextOutlined,
   EnvironmentOutlined,
   SafetyOutlined,
+  ShopOutlined,
 } from '@ant-design/icons';
 import useLanguage from '@/locale/useLanguage';
-import logoIcon from '@/style/images/logo-icon.svg';
-import logoText from '@/style/images/logo-text.svg';
 import { brandColors } from '@/theme';
 
 const { Text } = Typography;
@@ -213,15 +212,11 @@ export default React.memo(function NavigationContainer() {
           justifyContent: 'center',
         }}
       >
-        <img 
-          src={logoIcon} 
-          alt="Logo" 
+        <ShopOutlined 
           style={{ 
-            height: '32px', 
-            width: 'auto',
-            opacity: 1,
-            filter: 'brightness(0) invert(1)',
-            backgroundColor: 'transparent'
+            fontSize: '32px', 
+            color: '#FFFFFF',
+            opacity: 1
           }} 
         />
 
