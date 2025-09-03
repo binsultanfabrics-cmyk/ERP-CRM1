@@ -35,6 +35,15 @@ app.use(compression());
 // // default options
 // app.use(fileUpload());
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    message: 'Bin Sultan ERP + POS API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Here our API Routes
 
 app.use('/api', coreAuthRouter);
