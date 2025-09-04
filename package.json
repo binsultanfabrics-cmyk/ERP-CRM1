@@ -1,0 +1,47 @@
+{
+  "name": "bin-sultan-erp-crm",
+  "version": "4.1.0",
+  "description": "Free Open Source ERP CRM Software - Root Package",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "setup": "cd backend && npm run setup",
+    "upgrade": "cd backend && npm run upgrade",
+    "reset": "cd backend && npm run reset"
+  },
+  "keywords": [
+    "erp",
+    "crm",
+    "business",
+    "management",
+    "open-source",
+    "free"
+  ],
+  "author": "Bin Sultan",
+  "email": "hello@binsultan.com",
+  "license": "Fair-code License",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binsultan/bin-sultan-erp-crm/.git"
+  },
+  "bugs": {
+    "url": "https://github.com/binsultan/bin-sultan-erp-crm//issues"
+  },
+  "homepage": "https://github.com/binsultan/bin-sultan-erp-crm/#readme",
+  "engines": {
+    "node": "20.9.0",
+    "npm": "10.2.4"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "mongoose": "^8.18.0"
+  }
+}

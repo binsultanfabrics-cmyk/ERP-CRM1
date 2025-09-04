@@ -33,7 +33,7 @@ export default ({ mode }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: false,
-      minify: 'esbuild',
+      minify: 'terser',
       rollupOptions: {
         output: {
           manualChunks: {
@@ -50,4 +50,3 @@ export default ({ mode }) => {
   };
   return defineConfig(config);
 };
-

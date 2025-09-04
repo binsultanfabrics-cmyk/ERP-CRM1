@@ -1,0 +1,648 @@
+{
+  "bargainLogs": [
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439011",
+      "product": "507f1f77bcf86cd799439021",
+      "staff": "507f1f77bcf86cd799439031",
+      "originalPrice": 150.00,
+      "finalPrice": 135.00,
+      "discountPct": 10.00,
+      "discountAmount": 15.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Manager",
+      "reason": "Customer loyalty discount",
+      "customerName": "Ahmed Ali",
+      "customerPhone": "+92-300-1234567",
+      "notes": "Regular customer, good payment history",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-15T10:30:00.000Z",
+      "updated": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439012",
+      "product": "507f1f77bcf86cd799439022",
+      "staff": "507f1f77bcf86cd799439032",
+      "originalPrice": 200.00,
+      "finalPrice": 180.00,
+      "discountPct": 10.00,
+      "discountAmount": 20.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Cashier",
+      "reason": "Bulk purchase discount",
+      "customerName": "Fatima Khan",
+      "customerPhone": "+92-301-2345678",
+      "notes": "Purchasing 5 meters",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-16T14:20:00.000Z",
+      "updated": "2024-01-16T14:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439013",
+      "product": "507f1f77bcf86cd799439023",
+      "staff": "507f1f77bcf86cd799439033",
+      "originalPrice": 300.00,
+      "finalPrice": 270.00,
+      "discountPct": 10.00,
+      "discountAmount": 30.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Owner",
+      "reason": "Seasonal promotion",
+      "customerName": "Muhammad Hassan",
+      "customerPhone": "+92-302-3456789",
+      "notes": "End of season clearance",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-17T09:15:00.000Z",
+      "updated": "2024-01-17T09:15:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439014",
+      "product": "507f1f77bcf86cd799439024",
+      "staff": "507f1f77bcf86cd799439034",
+      "originalPrice": 120.00,
+      "finalPrice": 108.00,
+      "discountPct": 10.00,
+      "discountAmount": 12.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Manager",
+      "reason": "First time customer",
+      "customerName": "Aisha Malik",
+      "customerPhone": "+92-303-4567890",
+      "notes": "Welcome discount",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-18T16:45:00.000Z",
+      "updated": "2024-01-18T16:45:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439015",
+      "product": "507f1f77bcf86cd799439025",
+      "staff": "507f1f77bcf86cd799439035",
+      "originalPrice": 180.00,
+      "finalPrice": 162.00,
+      "discountPct": 10.00,
+      "discountAmount": 18.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Cashier",
+      "reason": "Minor defect",
+      "customerName": "Omar Sheikh",
+      "customerPhone": "+92-304-5678901",
+      "notes": "Small stain on fabric",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-19T11:30:00.000Z",
+      "updated": "2024-01-19T11:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439016",
+      "product": "507f1f77bcf86cd799439026",
+      "staff": "507f1f77bcf86cd799439036",
+      "originalPrice": 250.00,
+      "finalPrice": 225.00,
+      "discountPct": 10.00,
+      "discountAmount": 25.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Manager",
+      "reason": "Wholesale customer",
+      "customerName": "Zainab Ahmed",
+      "customerPhone": "+92-305-6789012",
+      "notes": "Regular wholesale buyer",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-20T13:20:00.000Z",
+      "updated": "2024-01-20T13:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439017",
+      "product": "507f1f77bcf86cd799439027",
+      "staff": "507f1f77bcf86cd799439037",
+      "originalPrice": 90.00,
+      "finalPrice": 81.00,
+      "discountPct": 10.00,
+      "discountAmount": 9.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Cashier",
+      "reason": "Student discount",
+      "customerName": "Hassan Raza",
+      "customerPhone": "+92-306-7890123",
+      "notes": "Student ID verified",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-21T15:10:00.000Z",
+      "updated": "2024-01-21T15:10:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439018",
+      "product": "507f1f77bcf86cd799439028",
+      "staff": "507f1f77bcf86cd799439038",
+      "originalPrice": 160.00,
+      "finalPrice": 144.00,
+      "discountPct": 10.00,
+      "discountAmount": 16.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Owner",
+      "reason": "VIP customer",
+      "customerName": "Nadia Khan",
+      "customerPhone": "+92-307-8901234",
+      "notes": "VIP customer with high purchase history",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-22T12:00:00.000Z",
+      "updated": "2024-01-22T12:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439019",
+      "product": "507f1f77bcf86cd799439029",
+      "staff": "507f1f77bcf86cd799439039",
+      "originalPrice": 220.00,
+      "finalPrice": 198.00,
+      "discountPct": 10.00,
+      "discountAmount": 22.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Manager",
+      "reason": "Cash payment discount",
+      "customerName": "Tariq Mahmood",
+      "customerPhone": "+92-308-9012345",
+      "notes": "Cash payment preferred",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-23T17:30:00.000Z",
+      "updated": "2024-01-23T17:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "sale": "507f1f77bcf86cd799439020",
+      "product": "507f1f77bcf86cd799439030",
+      "staff": "507f1f77bcf86cd799439040",
+      "originalPrice": 140.00,
+      "finalPrice": 126.00,
+      "discountPct": 10.00,
+      "discountAmount": 14.00,
+      "approvedBy": "507f1f77bcf86cd799439041",
+      "approvalLevel": "Cashier",
+      "reason": "End of day sale",
+      "customerName": "Sara Ali",
+      "customerPhone": "+92-309-0123456",
+      "notes": "Last customer of the day",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2024-01-24T19:45:00.000Z",
+      "updated": "2024-01-24T19:45:00.000Z"
+    }
+  ],
+  "clients": [
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Ahmed Ali",
+      "phone": "+92-300-1234567",
+      "country": "Pakistan",
+      "address": "House 123, Block A, Gulberg, Lahore",
+      "email": "ahmed.ali@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-01T10:00:00.000Z",
+      "updated": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Fatima Khan",
+      "phone": "+92-301-2345678",
+      "country": "Pakistan",
+      "address": "Apartment 45, Phase 2, DHA, Karachi",
+      "email": "fatima.khan@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-02T11:00:00.000Z",
+      "updated": "2024-01-16T14:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Muhammad Hassan",
+      "phone": "+92-302-3456789",
+      "country": "Pakistan",
+      "address": "Street 7, Sector F-8, Islamabad",
+      "email": "m.hassan@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-03T12:00:00.000Z",
+      "updated": "2024-01-17T09:15:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Aisha Malik",
+      "phone": "+92-303-4567890",
+      "country": "Pakistan",
+      "address": "House 89, Model Town, Lahore",
+      "email": "aisha.malik@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-04T13:00:00.000Z",
+      "updated": "2024-01-18T16:45:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Omar Sheikh",
+      "phone": "+92-304-5678901",
+      "country": "Pakistan",
+      "address": "Flat 12, Building 5, Clifton, Karachi",
+      "email": "omar.sheikh@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-05T14:00:00.000Z",
+      "updated": "2024-01-19T11:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Zainab Ahmed",
+      "phone": "+92-305-6789012",
+      "country": "Pakistan",
+      "address": "Shop 23, Liberty Market, Lahore",
+      "email": "zainab.ahmed@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-06T15:00:00.000Z",
+      "updated": "2024-01-20T13:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Hassan Raza",
+      "phone": "+92-306-7890123",
+      "country": "Pakistan",
+      "address": "Hostel Room 15, University of Punjab, Lahore",
+      "email": "hassan.raza@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-07T16:00:00.000Z",
+      "updated": "2024-01-21T15:10:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Nadia Khan",
+      "phone": "+92-307-8901234",
+      "country": "Pakistan",
+      "address": "Villa 8, Defence Phase 5, Karachi",
+      "email": "nadia.khan@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-08T17:00:00.000Z",
+      "updated": "2024-01-22T12:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Tariq Mahmood",
+      "phone": "+92-308-9012345",
+      "country": "Pakistan",
+      "address": "House 67, Satellite Town, Rawalpindi",
+      "email": "tariq.mahmood@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-09T18:00:00.000Z",
+      "updated": "2024-01-23T17:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "name": "Sara Ali",
+      "phone": "+92-309-0123456",
+      "country": "Pakistan",
+      "address": "Apartment 34, Gulshan-e-Iqbal, Karachi",
+      "email": "sara.ali@email.com",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "assigned": "507f1f77bcf86cd799439041",
+      "created": "2024-01-10T19:00:00.000Z",
+      "updated": "2024-01-24T19:45:00.000Z"
+    }
+  ],
+  "employees": [
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP001",
+      "name": "Ali Ahmed",
+      "phone": "+92-310-1234567",
+      "email": "ali.ahmed@company.com",
+      "address": "House 12, Block B, Gulberg, Lahore",
+      "role": "Manager",
+      "salaryType": "Hybrid",
+      "baseSalary": 50000.00,
+      "commissionRate": 5.00,
+      "joiningDate": "2023-01-15T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Fatima Ahmed",
+        "phone": "+92-311-1234567",
+        "relationship": "Wife"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp001_cnic.pdf",
+          "uploadedAt": "2023-01-15T00:00:00.000Z"
+        }
+      ],
+      "notes": "Experienced manager with 5 years in retail",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-01-15T00:00:00.000Z",
+      "updated": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP002",
+      "name": "Sara Khan",
+      "phone": "+92-312-2345678",
+      "email": "sara.khan@company.com",
+      "address": "Apartment 23, Phase 1, DHA, Karachi",
+      "role": "Cashier",
+      "salaryType": "Fixed",
+      "baseSalary": 30000.00,
+      "commissionRate": 0.00,
+      "joiningDate": "2023-02-01T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Ahmed Khan",
+        "phone": "+92-313-2345678",
+        "relationship": "Father"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp002_cnic.pdf",
+          "uploadedAt": "2023-02-01T00:00:00.000Z"
+        }
+      ],
+      "notes": "Reliable cashier with good customer service skills",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-02-01T00:00:00.000Z",
+      "updated": "2024-01-16T14:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP003",
+      "name": "Hassan Raza",
+      "phone": "+92-314-3456789",
+      "email": "hassan.raza@company.com",
+      "address": "Street 5, Sector G-9, Islamabad",
+      "role": "Salesperson",
+      "salaryType": "Commission",
+      "baseSalary": 20000.00,
+      "commissionRate": 8.00,
+      "joiningDate": "2023-03-10T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Aisha Raza",
+        "phone": "+92-315-3456789",
+        "relationship": "Sister"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp003_cnic.pdf",
+          "uploadedAt": "2023-03-10T00:00:00.000Z"
+        }
+      ],
+      "notes": "Top performer in sales, excellent product knowledge",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-03-10T00:00:00.000Z",
+      "updated": "2024-01-17T09:15:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP004",
+      "name": "Fatima Malik",
+      "phone": "+92-316-4567890",
+      "email": "fatima.malik@company.com",
+      "address": "House 45, Model Town, Lahore",
+      "role": "Helper",
+      "salaryType": "Fixed",
+      "baseSalary": 25000.00,
+      "commissionRate": 0.00,
+      "joiningDate": "2023-04-05T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Muhammad Malik",
+        "phone": "+92-317-4567890",
+        "relationship": "Husband"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp004_cnic.pdf",
+          "uploadedAt": "2023-04-05T00:00:00.000Z"
+        }
+      ],
+      "notes": "Hardworking helper, good with inventory management",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-04-05T00:00:00.000Z",
+      "updated": "2024-01-18T16:45:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP005",
+      "name": "Omar Sheikh",
+      "phone": "+92-318-5678901",
+      "email": "omar.sheikh@company.com",
+      "address": "Flat 8, Building 3, Clifton, Karachi",
+      "role": "Salesperson",
+      "salaryType": "Hybrid",
+      "baseSalary": 25000.00,
+      "commissionRate": 6.00,
+      "joiningDate": "2023-05-20T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Zainab Sheikh",
+        "phone": "+92-319-5678901",
+        "relationship": "Mother"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp005_cnic.pdf",
+          "uploadedAt": "2023-05-20T00:00:00.000Z"
+        }
+      ],
+      "notes": "Good communication skills, handles customer complaints well",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-05-20T00:00:00.000Z",
+      "updated": "2024-01-19T11:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP006",
+      "name": "Aisha Khan",
+      "phone": "+92-320-6789012",
+      "email": "aisha.khan@company.com",
+      "address": "Shop 12, Liberty Market, Lahore",
+      "role": "Cashier",
+      "salaryType": "Fixed",
+      "baseSalary": 28000.00,
+      "commissionRate": 0.00,
+      "joiningDate": "2023-06-15T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Tariq Khan",
+        "phone": "+92-321-6789012",
+        "relationship": "Brother"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp006_cnic.pdf",
+          "uploadedAt": "2023-06-15T00:00:00.000Z"
+        }
+      ],
+      "notes": "Accurate with cash handling, good with numbers",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-06-15T00:00:00.000Z",
+      "updated": "2024-01-20T13:20:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP007",
+      "name": "Muhammad Hassan",
+      "phone": "+92-322-7890123",
+      "email": "m.hassan@company.com",
+      "address": "House 78, Satellite Town, Rawalpindi",
+      "role": "Helper",
+      "salaryType": "Fixed",
+      "baseSalary": 22000.00,
+      "commissionRate": 0.00,
+      "joiningDate": "2023-07-01T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Nadia Hassan",
+        "phone": "+92-323-7890123",
+        "relationship": "Wife"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp007_cnic.pdf",
+          "uploadedAt": "2023-07-01T00:00:00.000Z"
+        }
+      ],
+      "notes": "Strong and reliable, good for heavy lifting",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-07-01T00:00:00.000Z",
+      "updated": "2024-01-21T15:10:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP008",
+      "name": "Zainab Ahmed",
+      "phone": "+92-324-8901234",
+      "email": "zainab.ahmed@company.com",
+      "address": "Villa 15, Defence Phase 3, Karachi",
+      "role": "Salesperson",
+      "salaryType": "Commission",
+      "baseSalary": 18000.00,
+      "commissionRate": 10.00,
+      "joiningDate": "2023-08-10T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Ahmed Ali",
+        "phone": "+92-325-8901234",
+        "relationship": "Father"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp008_cnic.pdf",
+          "uploadedAt": "2023-08-10T00:00:00.000Z"
+        }
+      ],
+      "notes": "Excellent sales skills, great with customer relationships",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-08-10T00:00:00.000Z",
+      "updated": "2024-01-22T12:00:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP009",
+      "name": "Tariq Mahmood",
+      "phone": "+92-326-9012345",
+      "email": "tariq.mahmood@company.com",
+      "address": "Apartment 67, Gulshan-e-Iqbal, Karachi",
+      "role": "Manager",
+      "salaryType": "Hybrid",
+      "baseSalary": 45000.00,
+      "commissionRate": 4.00,
+      "joiningDate": "2023-09-05T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Sara Mahmood",
+        "phone": "+92-327-9012345",
+        "relationship": "Wife"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp009_cnic.pdf",
+          "uploadedAt": "2023-09-05T00:00:00.000Z"
+        }
+      ],
+      "notes": "Assistant manager, good leadership skills",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-09-05T00:00:00.000Z",
+      "updated": "2024-01-23T17:30:00.000Z"
+    },
+    {
+      "removed": false,
+      "enabled": true,
+      "employeeId": "EMP010",
+      "name": "Nadia Ali",
+      "phone": "+92-328-0123456",
+      "email": "nadia.ali@company.com",
+      "address": "House 34, Block C, Gulberg, Lahore",
+      "role": "Cashier",
+      "salaryType": "Fixed",
+      "baseSalary": 26000.00,
+      "commissionRate": 0.00,
+      "joiningDate": "2023-10-01T00:00:00.000Z",
+      "active": true,
+      "emergencyContact": {
+        "name": "Hassan Ali",
+        "phone": "+92-329-0123456",
+        "relationship": "Husband"
+      },
+      "documents": [
+        {
+          "type": "CNIC",
+          "url": "/uploads/emp010_cnic.pdf",
+          "uploadedAt": "2023-10-01T00:00:00.000Z"
+        }
+      ],
+      "notes": "New cashier, learning quickly",
+      "createdBy": "507f1f77bcf86cd799439041",
+      "created": "2023-10-01T00:00:00.000Z",
+      "updated": "2024-01-24T19:45:00.000Z"
+    }
+  ]
+}
