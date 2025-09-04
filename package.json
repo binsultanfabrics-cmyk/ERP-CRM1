@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/binsultan/bin-sultan-erp-crm/#readme",
   "engines": {
-    "node": "20.9.0",
-    "npm": "10.2.4"
+    "node": "20.x",
+    "npm": "10.x"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
