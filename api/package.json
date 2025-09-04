@@ -35,6 +35,6 @@
     "transliteration": "^2.3.5"
   },
   "_moduleAliases": {
-    "@": "backend/src"
+    "@": "../backend/src"
   }
 }

@@ -36,7 +36,7 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 // Load models if MongoDB is available
 if (process.env.DATABASE) {
   try {
-    const modelsFiles = globSync('./backend/src/models/**/*.js');
+    const modelsFiles = globSync('../backend/src/models/**/*.js');
     
     for (const filePath of modelsFiles) {
       require(path.resolve(filePath));
@@ -50,18 +50,18 @@ if (process.env.DATABASE) {
 }
 
 // Start our app!
-const app = require('./backend/src/app');
+const app = require('../backend/src/app');
 
 // For Vercel, we need to export the app as a handler
 module.exports = app;
 
 // Start reminder jobs if database is connected (only in development)
 if (process.env.NODE_ENV !== 'production' && process.env.DATABASE) {
-  const { startReminderJobs } = require('./backend/src/jobs/reminderJob');
+  const { startReminderJobs } = require('../backend/src/jobs/reminderJob');
   startReminderJobs();
   
   // Initialize ERP features on startup
-  const { initializeERPFeatures } = require('./backend/src/setup/initializeERPFeatures');
+  const { initializeERPFeatures } = require('../backend/src/setup/initializeERPFeatures');
   setTimeout(async () => {
     try {
       await initializeERPFeatures();
