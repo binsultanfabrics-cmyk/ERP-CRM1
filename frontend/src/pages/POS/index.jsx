@@ -590,6 +590,11 @@ export default function POS() {
                   onPressEnter={() => handleBarcodeScan(barcodeInput)}
                   prefix={<BarcodeOutlined />}
                   size="large"
+                  style={{
+                    background: 'var(--bg-card)',
+                    borderColor: 'var(--border-primary)',
+                    color: 'var(--text-primary)'
+                  }}
                 />
               </Col>
               <Col span={12}>
@@ -599,6 +604,11 @@ export default function POS() {
                   onChange={(e) => setSearchProduct(e.target.value)}
                   prefix={<SearchOutlined />}
                   size="large"
+                  style={{
+                    background: 'var(--bg-card)',
+                    borderColor: 'var(--border-primary)',
+                    color: 'var(--text-primary)'
+                  }}
                 />
               </Col>
             </Row>
@@ -625,9 +635,9 @@ export default function POS() {
                       >
                         <Text strong>{product.name}</Text>
                         <br />
-                        <Text type="secondary">{product.code}</Text>
+                        <Text style={{ color: 'var(--text-secondary)' }}>{product.code}</Text>
                         <br />
-                        <Text type="secondary">Rs {product.pricing?.defaultPrice || 0}</Text>
+                        <Text style={{ color: 'var(--text-secondary)' }}>Rs {product.pricing?.defaultPrice || 0}</Text>
                       </Card>
                     </Col>
                   ))}
@@ -642,7 +652,7 @@ export default function POS() {
                   <Col span={8}>
                     <Text strong>{selectedRoll.product?.name || 'Unknown Product'}</Text>
                     <br />
-                    <Text type="secondary">Available: {selectedRoll.remainingLength} {selectedRoll.unit}</Text>
+                    <Text style={{ color: 'var(--text-secondary)' }}>Available: {selectedRoll.remainingLength} {selectedRoll.unit}</Text>
                   </Col>
                   <Col span={8}>
                     <InputNumber
@@ -653,7 +663,12 @@ export default function POS() {
                       max={selectedRoll.remainingLength}
                       step={FRACTIONAL_PRECISION}
                       size="large"
-                      style={{ width: '100%' }}
+                      style={{ 
+                        width: '100%',
+                        background: 'var(--bg-card)',
+                        borderColor: 'var(--border-primary)',
+                        color: 'var(--text-primary)'
+                      }}
                     />
                   </Col>
                   <Col span={8}>
@@ -678,7 +693,7 @@ export default function POS() {
 
                 {/* Fraction Buttons */}
                 <div style={{ marginTop: 16 }}>
-                  <Text type="secondary">Quick quantities: </Text>
+                  <Text style={{ color: 'var(--text-secondary)' }}>Quick quantities: </Text>
                   <Space>
                     {FRACTION_BUTTONS.map(fraction => (
                       <Button
@@ -714,7 +729,7 @@ export default function POS() {
                         <div>
                           <Text strong>{product.name}</Text>
                           <br />
-                          <Text type="secondary">{product.code}</Text>
+                          <Text style={{ color: 'var(--text-secondary)' }}>{product.code}</Text>
                         </div>
                       )
                     },
@@ -793,7 +808,7 @@ export default function POS() {
                       value={totals.grandTotal}
                       precision={2}
                       prefix="Rs"
-                      valueStyle={{ color: '#1890ff', fontSize: '18px' }}
+                      valueStyle={{ color: 'var(--brand-primary)', fontSize: '18px' }}
                     />
                   </Space>
                   
@@ -1209,7 +1224,7 @@ export default function POS() {
                 <Statistic
                   title="Today's Transactions"
                   value={posAnalytics.todayTransactions}
-                  valueStyle={{ color: '#1890ff' }}
+                  valueStyle={{ color: 'var(--brand-primary)' }}
                 />
               </Col>
               <Col span={6}>
@@ -1246,14 +1261,14 @@ export default function POS() {
   ];
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               🛒 Point of Sale (POS)
             </Title>
-            <Text type="secondary">Fast, touch-friendly sales interface with inventory management</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Fast, touch-friendly sales interface with inventory management</Text>
           </Col>
           <Col>
             <Space>
@@ -1347,7 +1362,7 @@ export default function POS() {
           <div>
             <div style={{ textAlign: 'center', marginBottom: 20 }}>
               <Title level={3}>Receipt</Title>
-              <Text type="secondary">{dayjs(receiptData.date).format('DD/MM/YYYY HH:mm')}</Text>
+              <Text style={{ color: 'var(--text-secondary)' }}>{dayjs(receiptData.date).format('DD/MM/YYYY HH:mm')}</Text>
             </div>
 
             <Divider />
@@ -1358,7 +1373,7 @@ export default function POS() {
                   <Col>
                     <Text strong>{item.product.name}</Text>
                     <br />
-                    <Text type="secondary">{item.qty} {item.unit} × Rs {item.price}</Text>
+                    <Text style={{ color: 'var(--text-secondary)' }}>{item.qty} {item.unit} × Rs {item.price}</Text>
                   </Col>
                   <Col>
                     <Text strong>Rs {item.total}</Text>
@@ -1480,7 +1495,7 @@ export default function POS() {
               >
                 <Text strong>{customer.name}</Text>
                 <br />
-                <Text type="secondary">{customer.email} • {customer.phone}</Text>
+                <Text style={{ color: 'var(--text-secondary)' }}>{customer.email} • {customer.phone}</Text>
               </Card>
             ))}
           </div>

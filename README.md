@@ -2,19 +2,19 @@
       <a href="https://www.binsultan.com/">
         <img src="https://img.shields.io/badge/Bin-Sultan%20ERP%20%2F%20CRM-blue?style=for-the-badge&logo=appveyor" alt="Bin Sultan ERP CRM" />
       </a>
-      <h1>Open Source ERP / CRM Accounting Invoice Quote</h1>
+      <h1>Bin Sultan Fashion & Lifestyle Store</h1>
       <p align="center">
-         <p>Bin Sultan | Simple To Use</p>
+         <p>Professional ERP & POS System | Fashion Retail Management</p>
       </p>
       
       <p align="center">
-        <a href="https://www.binsultan.com/open-source-erp-crm/">
-          <strong>🚀 Live Demo »</strong>
+        <a href="https://www.binsultan.com/">
+          <strong>🏪 Visit Bin Sultan »</strong>
         </a>
       </p>
       
       <p align="center">
-        Bin Sultan is Open Source ERP / CRM (Invoice / Quote / Accounting ) Based on Advanced Mern Stack (Node.js / Express.js / MongoDb / React.js ) with Ant Design (AntD) and Redux
+        Bin Sultan is a comprehensive ERP & POS system designed specifically for fashion and lifestyle retail stores. Built with modern MERN stack (Node.js / Express.js / MongoDB / React.js) with Ant Design and Redux for optimal performance and user experience.
       </p>
       
       <p align="center">

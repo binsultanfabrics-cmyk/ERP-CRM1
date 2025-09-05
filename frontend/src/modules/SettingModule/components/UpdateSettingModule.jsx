@@ -11,7 +11,7 @@ export default function UpdateSettingModule({
   uploadSettingKey = null,
 }) {
   return (
-    <>
+    <div className="settings-page">
       <PageHeader
         title={config.SETTINGS_TITLE}
         ghost={false}
@@ -22,6 +22,8 @@ export default function UpdateSettingModule({
         // ]}
         style={{
           padding: '20px 0px',
+          background: 'var(--bg-primary)',
+          color: 'var(--text-primary)'
         }}
       ></PageHeader>
 
@@ -33,6 +35,6 @@ export default function UpdateSettingModule({
       >
         {children}
       </UpdateSettingForm>
-    </>
+    </div>
   );
 }

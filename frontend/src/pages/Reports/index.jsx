@@ -220,7 +220,7 @@ export default function Reports() {
           <div>
             <Text strong>{record.productName}</Text>
             <br />
-            <Text type="secondary">{record.productCode}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{record.productCode}</Text>
           </div>
         ),
       },
@@ -287,7 +287,7 @@ export default function Reports() {
           <div>
             <Text strong>{record.partyName}</Text>
             <br />
-            <Text type="secondary">{record.partyType}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{record.partyType}</Text>
           </div>
         ),
       },
@@ -346,7 +346,7 @@ export default function Reports() {
                            bucket === '61-90' ? '#fa8c16' : '#cf1322'
                   }}
                 />
-                <Text type="secondary">{data.count} accounts</Text>
+                <Text style={{ color: 'var(--text-secondary)' }}>{data.count} accounts</Text>
               </Card>
             </Col>
           ))}
@@ -377,7 +377,7 @@ export default function Reports() {
           <div>
             <Text strong>{record.employeeName}</Text>
             <br />
-            <Text type="secondary">{record.employeeRole}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{record.employeeRole}</Text>
           </div>
         ),
       },
@@ -443,7 +443,7 @@ export default function Reports() {
           <div>
             <Text strong>{record.productName}</Text>
             <br />
-            <Text type="secondary">{record.productCode}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{record.productCode}</Text>
           </div>
         ),
       },
@@ -560,14 +560,14 @@ export default function Reports() {
   ];
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               📊 Reports & Analytics
             </Title>
-            <Text type="secondary">Comprehensive business intelligence and reporting</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Comprehensive business intelligence and reporting</Text>
           </Col>
           <Col>
             <Space>

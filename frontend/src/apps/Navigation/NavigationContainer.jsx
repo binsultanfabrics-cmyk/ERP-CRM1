@@ -17,8 +17,7 @@ import {
   SafetyOutlined,
 } from '@ant-design/icons';
 import useLanguage from '@/locale/useLanguage';
-import logoIcon from '@/style/images/logo-icon.svg';
-import logoText from '@/style/images/logo-text.svg';
+import { ShopOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
@@ -195,20 +194,51 @@ export default React.memo(function NavigationContainer() {
         onClick={handleLogoClick}
         style={{
           cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '20px 20px',
+          background: 'var(--gradient-primary)',
+          margin: '16px',
+          borderRadius: '16px',
+          boxShadow: 'var(--shadow-lg)',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          border: '1px solid var(--border-accent)',
+          minHeight: '80px',
+          maxHeight: '80px',
+          width: 'calc(100% - 32px)',
+          boxSizing: 'border-box'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-2px)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-xl)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
         }}
       >
-        <img src={logoIcon} alt="Logo" style={{ marginLeft: '-5px', height: '40px' }} />
-
+        <ShopOutlined style={{ 
+          fontSize: '32px', 
+          color: 'var(--bg-primary)', 
+          opacity: 1,
+          marginRight: '12px',
+          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+          flexShrink: 0
+        }} />
         {!showLogoApp && (
-          <img
-            src={logoText}
-            alt="Logo"
-            style={{
-              marginTop: '3px',
-              marginLeft: '10px',
-              height: '38px',
-            }}
-          />
+          <div style={{ 
+            color: 'var(--bg-primary)', 
+            fontWeight: '800', 
+            fontSize: '16px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+            letterSpacing: '0.2px',
+            whiteSpace: 'nowrap',
+            lineHeight: '1.2',
+            flex: 1,
+            minWidth: 0
+          }}>
+            Bin Sultan
+          </div>
         )}
       </div>
       <Menu

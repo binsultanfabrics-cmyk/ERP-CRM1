@@ -281,7 +281,7 @@ export default function PurchaseOrders() {
         <div>
           <Text>{record.items?.length || 0} items</Text>
           <br />
-          <Text type="secondary">
+          <Text style={{ color: 'var(--text-secondary)' }}>
             Total: Rs {parseFloat(record.totalAmount || 0).toFixed(2)}
           </Text>
         </div>
@@ -388,14 +388,14 @@ export default function PurchaseOrders() {
   ];
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               📋 Purchase Orders Management
             </Title>
-            <Text type="secondary">Manage supplier purchase orders and inventory receipts</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Manage supplier purchase orders and inventory receipts</Text>
           </Col>
           <Col>
             <Space>
@@ -433,7 +433,7 @@ export default function PurchaseOrders() {
             <Statistic
               title="Created"
               value={poStats.created}
-              valueStyle={{ color: '#1890ff' }}
+              valueStyle={{ color: 'var(--brand-primary)' }}
               prefix={<FileTextOutlined />}
             />
           </Card>
@@ -692,7 +692,7 @@ export default function PurchaseOrders() {
                               <Form.Item label="Product">
                                 <Text strong>{product?.name || 'Unknown'}</Text>
                                 <br />
-                                <Text type="secondary">Remaining: {item?.remainingQuantity} {item?.unit}</Text>
+                                <Text style={{ color: 'var(--text-secondary)' }}>Remaining: {item?.remainingQuantity} {item?.unit}</Text>
                               </Form.Item>
                             </Col>
                             <Col span={4}>
@@ -805,12 +805,12 @@ export default function PurchaseOrders() {
                     <Col span={12}>
                       <Text strong>{product?.name || 'Unknown Product'}</Text>
                       <br />
-                      <Text type="secondary">{product?.code}</Text>
+                      <Text style={{ color: 'var(--text-secondary)' }}>{product?.code}</Text>
                     </Col>
                     <Col span={6}>
                       <Text>Qty: {item.quantity} {item.unit}</Text>
                       <br />
-                      <Text type="secondary">Remaining: {item.remainingQuantity}</Text>
+                      <Text style={{ color: 'var(--text-secondary)' }}>Remaining: {item.remainingQuantity}</Text>
                     </Col>
                     <Col span={6}>
                       <Text>Price: Rs {parseFloat(item.unitPrice).toFixed(2)}</Text>

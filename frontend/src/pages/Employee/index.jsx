@@ -147,7 +147,7 @@ export default function Employee() {
           <div>
             <Text strong>{name}</Text>
             <br />
-            <Text type="secondary">{record.position}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{record.position}</Text>
           </div>
         </Space>
       )
@@ -227,13 +227,13 @@ export default function Employee() {
   const stats = getEmployeeStats();
 
   return (
-    <div style={{ padding: '24px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '24px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       {/* Header */}
       <div style={{ marginBottom: '24px' }}>
-                 <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+                 <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
            👥 Bin Sultan Employee Management
          </Title>
-         <Text type="secondary">Manage your staff and team members - Pakistan's Premier Cloth Shop Team</Text>
+         <Text style={{ color: 'var(--text-secondary)' }}>Manage your staff and team members - Pakistan's Premier Cloth Shop Team</Text>
       </div>
 
       {/* Stats Cards */}
@@ -243,7 +243,7 @@ export default function Employee() {
             <Statistic
               title="Total Employees"
               value={stats.total}
-              valueStyle={{ color: '#1890ff' }}
+              valueStyle={{ color: 'var(--brand-primary)' }}
               prefix={<TeamOutlined />}
             />
           </Card>
@@ -518,7 +518,7 @@ export default function Employee() {
                 {viewingEmployee.status || 'Active'}
               </Tag>
               <br />
-              <Text type="secondary">{viewingEmployee.position}</Text>
+              <Text style={{ color: 'var(--text-secondary)' }}>{viewingEmployee.position}</Text>
             </div>
 
             <Descriptions column={1} bordered>

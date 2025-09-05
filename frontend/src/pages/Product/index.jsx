@@ -129,7 +129,7 @@ export default function Product() {
         <div>
           <Text strong>{name}</Text>
           <br />
-          <Text type="secondary">Code: {record.code}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>Code: {record.code}</Text>
         </div>
       )
     },
@@ -167,7 +167,7 @@ export default function Product() {
         <div>
           <Text>Min: Rs {parseFloat(record.pricing?.minSalePrice) || 0}</Text>
           <br />
-          <Text type="secondary">Max: Rs {parseFloat(record.pricing?.maxSalePrice) || 0}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>Max: Rs {parseFloat(record.pricing?.maxSalePrice) || 0}</Text>
         </div>
       )
     },
@@ -184,7 +184,7 @@ export default function Product() {
               size="small" 
               status={status}
             />
-            <Text type="secondary">{stock} {record.pricing?.defaultUnit || 'unit'}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{stock} {record.pricing?.defaultUnit || 'unit'}</Text>
           </div>
         );
       }
@@ -272,13 +272,13 @@ export default function Product() {
   const stats = getStats();
 
   return (
-    <div style={{ padding: '24px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '24px', background: 'var(--bg-primary)', minHeight: '100vh', color: 'var(--text-primary)' }}>
       {/* Header */}
       <div style={{ marginBottom: '24px' }}>
-                 <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+                 <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
            🧵 Bin Sultan Product Management
          </Title>
-         <Text type="secondary">Manage your fabric inventory and products - Pakistan's Premier Cloth Shop</Text>
+         <Text style={{ color: 'var(--text-secondary)' }}>Manage your fabric inventory and products - Pakistan's Premier Cloth Shop</Text>
       </div>
 
       {/* Stats Cards */}

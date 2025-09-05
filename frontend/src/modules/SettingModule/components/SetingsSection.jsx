@@ -7,8 +7,8 @@ export default function SetingsSection({ title, description, children }) {
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>
-        <Title level={4}>{title}</Title>
-        <Text type="secondary">{description}</Text>
+        <Title level={4} style={{ color: 'var(--text-primary)' }}>{title}</Title>
+        <Text type="secondary" style={{ color: 'var(--text-secondary)' }}>{description}</Text>
       </Col>
 
       <Col
@@ -20,7 +20,7 @@ export default function SetingsSection({ title, description, children }) {
       >
         {children}
       </Col>
-      <Divider />
+      <Divider style={{ borderColor: 'var(--border-primary)' }} />
     </Row>
   );
 }

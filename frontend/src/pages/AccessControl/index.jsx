@@ -303,7 +303,7 @@ export default function AccessControl() {
         <div>
           <Text strong>{record.userEmail}</Text>
           <br />
-          <Text type="secondary">{record.userId}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>{record.userId}</Text>
         </div>
       ),
     },
@@ -394,7 +394,7 @@ export default function AccessControl() {
                       <div>
                         <Text strong>{permission.name}</Text>
                         <br />
-                        <Text type="secondary">{permission.description}</Text>
+                        <Text style={{ color: 'var(--text-secondary)' }}>{permission.description}</Text>
                         <br />
                         <Tag color="blue">{permission.action}</Tag>
                         <Tag color="green">{permission.resource}</Tag>
@@ -434,14 +434,14 @@ export default function AccessControl() {
   ];
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               🔐 Access Control & Security
             </Title>
-            <Text type="secondary">Manage roles, permissions, and audit logs</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Manage roles, permissions, and audit logs</Text>
           </Col>
           <Col>
             <Space>
@@ -513,7 +513,7 @@ export default function AccessControl() {
                           <div>
                             <Text strong>{permission.name}</Text>
                             <br />
-                            <Text type="secondary" style={{ fontSize: '12px' }}>
+                            <Text style={{ color: 'var(--text-secondary)' }} style={{ fontSize: '12px' }}>
                               {permission.description}
                             </Text>
                           </div>
@@ -603,7 +603,7 @@ export default function AccessControl() {
                     <div style={{ marginBottom: 16 }}>
                       <Text strong>Before:</Text>
                       <pre style={{ 
-                        background: '#f5f5f5', 
+                        background: 'var(--bg-primary)', color: 'var(--text-primary)', 
                         padding: 8, 
                         borderRadius: 4,
                         fontSize: '12px',
@@ -617,7 +617,7 @@ export default function AccessControl() {
                     <div>
                       <Text strong>After:</Text>
                       <pre style={{ 
-                        background: '#f5f5f5', 
+                        background: 'var(--bg-primary)', color: 'var(--text-primary)', 
                         padding: 8, 
                         borderRadius: 4,
                         fontSize: '12px',
@@ -637,7 +637,7 @@ export default function AccessControl() {
                 <div>
                   <Title level={4}>Metadata</Title>
                   <pre style={{ 
-                    background: '#f5f5f5', 
+                    background: 'var(--bg-primary)', color: 'var(--text-primary)', 
                     padding: 8, 
                     borderRadius: 4,
                     fontSize: '12px'

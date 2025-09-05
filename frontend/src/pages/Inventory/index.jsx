@@ -124,7 +124,7 @@ export default function Inventory() {
           <div>
             <Text strong>{product?.name || 'Unknown'}</Text>
             <br />
-            <Text type="secondary">{product?.code || 'N/A'}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{product?.code || 'N/A'}</Text>
           </div>
         );
       }
@@ -137,7 +137,7 @@ export default function Inventory() {
         <div>
           <Text strong>{batchNumber}</Text>
           <br />
-          <Text type="secondary">{record.barcode}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>{record.barcode}</Text>
         </div>
       )
     },
@@ -328,7 +328,7 @@ export default function Inventory() {
       label: '📈 Stock Analytics',
       children: (
         <div style={{ textAlign: 'center', padding: '40px' }}>
-          <Text type="secondary">Stock analytics and charts coming soon...</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>Stock analytics and charts coming soon...</Text>
         </div>
       ),
     },
@@ -542,14 +542,14 @@ export default function Inventory() {
 
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               📦 Inventory & Stock Management
             </Title>
-            <Text type="secondary">Complete inventory tracking with roll management and stock transactions</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Complete inventory tracking with roll management and stock transactions</Text>
           </Col>
           <Col>
             <Space>
@@ -636,7 +636,7 @@ export default function Inventory() {
               title="Reserved Stock"
               value={inventoryStats.reservedStock}
               prefix={<RollbackOutlined />}
-              valueStyle={{ color: '#1890ff' }}
+              valueStyle={{ color: 'var(--brand-primary)' }}
             />
           </Card>
         </Col>

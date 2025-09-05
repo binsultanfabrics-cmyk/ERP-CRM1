@@ -1,6 +1,7 @@
 {
   "name": "bin-sultan-erp-crm",
   "version": "4.1.0",
+  "description": "Bin Sultan Fashion & Lifestyle Store - Professional ERP & POS System",
   "engines": {
     "node": "20.9.0",
     "npm": "10.2.4"

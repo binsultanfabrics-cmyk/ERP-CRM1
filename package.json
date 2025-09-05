@@ -1,7 +1,7 @@
 {
   "name": "bin-sultan-erp-crm",
   "version": "4.1.0",
-  "description": "Free Open Source ERP CRM Software - Root Package",
+  "description": "Bin Sultan Fashion & Lifestyle Store - Professional ERP & POS System",
   "main": "backend/src/server.js",
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",

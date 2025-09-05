@@ -94,11 +94,13 @@ export default React.memo(function HeaderContent() {
     <Header
       style={{
         padding: '20px',
-        background: '#ffffff',
+        background: 'var(--bg-secondary)',
+        color: 'var(--text-primary)',
         display: 'flex',
         flexDirection: 'row-reverse',
         justifyContent: 'flex-start',
         gap: ' 15px',
+        borderBottom: '1px solid var(--border-primary)'
       }}
     >
       <Dropdown

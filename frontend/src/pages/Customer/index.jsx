@@ -138,7 +138,7 @@ export default function Customer() {
           <div>
             <Text strong>{name}</Text>
             <br />
-            <Text type="secondary">{record.email}</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>{record.email}</Text>
           </div>
         </Space>
       )
@@ -222,13 +222,13 @@ export default function Customer() {
   const stats = getCustomerStats();
 
   return (
-    <div style={{ padding: '24px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '24px', background: 'var(--bg-primary)', minHeight: '100vh', color: 'var(--text-primary)' }}>
       {/* Header */}
       <div style={{ marginBottom: '24px' }}>
-                 <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+                 <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
            👥 Bin Sultan Customer Management
          </Title>
-         <Text type="secondary">Manage your customer database and relationships - Pakistan's Trusted Cloth Shop</Text>
+         <Text style={{ color: 'var(--text-secondary)' }}>Manage your customer database and relationships - Pakistan's Trusted Cloth Shop</Text>
       </div>
 
       {/* Stats Cards */}

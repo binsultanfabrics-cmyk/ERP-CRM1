@@ -1,1 +1,4 @@
 node_modules
+backend/.env
+frontend/temp.env
+backend/.env

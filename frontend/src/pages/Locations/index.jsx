@@ -298,7 +298,7 @@ export default function Locations() {
         <div>
           <Text>{record.address?.street || 'N/A'}</Text>
           <br />
-          <Text type="secondary">
+          <Text style={{ color: 'var(--text-secondary)' }}>
             {record.address?.city}, {record.address?.state}
           </Text>
         </div>
@@ -329,7 +329,7 @@ export default function Locations() {
         <div>
           <Text>Max Rolls: {record.capacity?.maxRolls || 0}</Text>
           <br />
-          <Text type="secondary">
+          <Text style={{ color: 'var(--text-secondary)' }}>
             Max Value: Rs {parseFloat(record.capacity?.maxValue || 0).toFixed(2)}
           </Text>
         </div>
@@ -394,14 +394,14 @@ export default function Locations() {
   ];
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               🏢 Locations & Warehouses
             </Title>
-            <Text type="secondary">Manage multiple locations and stock transfers</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Manage multiple locations and stock transfers</Text>
           </Col>
           <Col>
             <Space>
@@ -439,7 +439,7 @@ export default function Locations() {
             <Statistic
               title="Warehouses"
               value={locationStats.warehouses}
-              valueStyle={{ color: '#1890ff' }}
+              valueStyle={{ color: 'var(--brand-primary)' }}
               prefix={<InboxOutlined />}
             />
           </Card>
@@ -883,7 +883,7 @@ export default function Locations() {
                       const toLoc = locationsList.find(loc => loc._id === record.toLocation);
                       return (
                         <div>
-                          <Text type="secondary">From: {fromLoc?.name || 'N/A'}</Text>
+                          <Text style={{ color: 'var(--text-secondary)' }}>From: {fromLoc?.name || 'N/A'}</Text>
                           <br />
                           <Text>To: {toLoc?.name || 'N/A'}</Text>
                         </div>

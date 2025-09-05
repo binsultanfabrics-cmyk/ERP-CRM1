@@ -242,7 +242,7 @@ export default function Supplier() {
         <div>
           <Text strong>{name}</Text>
           <br />
-          <Text type="secondary">{record.contactPerson}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>{record.contactPerson}</Text>
         </div>
       )
     },
@@ -262,7 +262,7 @@ export default function Supplier() {
       render: (_, record) => (
         <div>
           <div>{record.city}, {record.country}</div>
-          <Text type="secondary">{record.address}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>{record.address}</Text>
         </div>
       )
     },
@@ -329,14 +329,14 @@ export default function Supplier() {
   ];
 
   return (
-    <div style={{ padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
+    <div style={{ padding: '20px', background: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100vh' }}>
       <Card style={{ marginBottom: 20 }}>
         <Row justify="space-between" align="middle">
           <Col>
-            <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
+            <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
               🏭 Supplier Management
             </Title>
-            <Text type="secondary">Manage suppliers, purchase orders, and supplier relationships</Text>
+            <Text style={{ color: 'var(--text-secondary)' }}>Manage suppliers, purchase orders, and supplier relationships</Text>
           </Col>
           <Col>
             <Space>
@@ -415,7 +415,7 @@ export default function Supplier() {
                     <div style={{ marginTop: 8 }}>
                       <Text strong>{supplier.name}</Text>
                       <br />
-                      <Text type="secondary">Rs {metrics.totalPurchases.toFixed(2)}</Text>
+                      <Text style={{ color: 'var(--text-secondary)' }}>Rs {metrics.totalPurchases.toFixed(2)}</Text>
                       <br />
                       <Progress 
                         percent={metrics.onTimeDelivery} 
@@ -460,7 +460,7 @@ export default function Supplier() {
               label: '📋 Purchase Orders',
               children: (
                 <div style={{ textAlign: 'center', padding: '40px' }}>
-                  <Text type="secondary">Purchase order management coming soon...</Text>
+                  <Text style={{ color: 'var(--text-secondary)' }}>Purchase order management coming soon...</Text>
                 </div>
               )
             },
@@ -469,7 +469,7 @@ export default function Supplier() {
               label: '💰 Supplier Ledger',
               children: (
                 <div style={{ textAlign: 'center', padding: '40px' }}>
-                  <Text type="secondary">Supplier ledger and payment tracking coming soon...</Text>
+                  <Text style={{ color: 'var(--text-secondary)' }}>Supplier ledger and payment tracking coming soon...</Text>
                 </div>
               )
             }
@@ -647,7 +647,7 @@ export default function Supplier() {
               <Form.Item label="Items" name="items" initialValue={[{ product: '', quantity: 1, unit: 'm', unitPrice: 0 }]}>
                 <div>
                   {/* This would be a dynamic form for multiple items */}
-                  <Text type="secondary">Item management coming soon...</Text>
+                  <Text style={{ color: 'var(--text-secondary)' }}>Item management coming soon...</Text>
                 </div>
               </Form.Item>
 

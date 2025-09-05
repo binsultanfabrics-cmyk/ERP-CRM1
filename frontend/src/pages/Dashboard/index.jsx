@@ -121,6 +121,7 @@ export default function Dashboard(){
       prefix: <UserOutlined />,
       color: colors.primary,
       bgGradient: 'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)',
+      growth: undefined,
       icon: '👥'
     },
     {
@@ -129,6 +130,7 @@ export default function Dashboard(){
       prefix: <ShoppingOutlined />,
       color: colors.purple,
       bgGradient: 'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%)',
+      growth: undefined,
       icon: '📦'
     },
     {
@@ -137,6 +139,7 @@ export default function Dashboard(){
       prefix: <TeamOutlined />,
       color: colors.secondary,
       bgGradient: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+      growth: undefined,
       icon: '🏢'
     },
     {
@@ -145,6 +148,7 @@ export default function Dashboard(){
       prefix: <FileTextOutlined />,
       color: colors.teal,
       bgGradient: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
+      growth: undefined,
       icon: '📋'
     },
     {
@@ -155,6 +159,7 @@ export default function Dashboard(){
       precision: 2,
       color: colors.pink,
       bgGradient: 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)',
+      growth: undefined,
       icon: '📈'
     }
   ];
@@ -303,73 +308,110 @@ export default function Dashboard(){
   return (
     <div style={{ 
       padding: '24px', 
-      background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', 
-      minHeight: '100vh' 
+      background: 'var(--bg-primary)', 
+      minHeight: '100vh',
+      color: 'var(--text-primary)'
     }}>
-      {/* Header */}
+      {/* Professional Welcome Header */}
       <div style={{ 
-        marginBottom: '32px', 
-        textAlign: 'center',
-        background: 'white',
-        padding: '32px',
+        marginBottom: '40px',
+        background: 'var(--gradient-primary)',
+        padding: '50px 40px',
         borderRadius: '20px',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
-        border: '1px solid #e2e8f0'
+        boxShadow: 'var(--shadow-xl)',
+        border: '1px solid var(--border-accent)',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div style={{ marginBottom: '16px' }}>
-          <Title level={1} style={{ 
-            background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.purple} 100%)`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            marginBottom: '8px',
-            fontSize: '3rem',
-            fontWeight: '800'
+        {/* Background Pattern */}
+        <div style={{
+          position: 'absolute',
+          top: '-50px',
+          right: '-50px',
+          width: '200px',
+          height: '200px',
+          background: 'rgba(0, 0, 0, 0.1)',
+          borderRadius: '50%',
+          zIndex: 1
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '-30px',
+          left: '-30px',
+          width: '150px',
+          height: '150px',
+          background: 'rgba(0, 0, 0, 0.05)',
+          borderRadius: '50%',
+          zIndex: 1
+        }}></div>
+        
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          {/* Icon and Title */}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            marginBottom: '20px',
+            gap: '20px'
           }}>
-            🏪 Bin Sultan ERP Dashboard
-          </Title>
-        </div>
-        <Text style={{ 
-          fontSize: '18px', 
-          color: '#64748b',
-          display: 'block',
-          marginBottom: '24px'
-        }}>
-          Real-time Analytics & Business Intelligence Hub
-        </Text>
-        <Space size="large">
-          <Button 
-            type="primary" 
-            size="large"
-            icon={<ReloadOutlined />} 
-            onClick={loadDashboardData}
-            loading={loading}
-            style={{ 
-              borderRadius: '12px',
-              height: '48px',
-              padding: '0 32px',
-              fontSize: '16px',
+            <div style={{
+              background: 'rgba(0, 0, 0, 0.2)',
+              padding: '24px',
+              borderRadius: '24px',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: 'var(--shadow-md)'
+            }}>
+              <span style={{ 
+                fontSize: '56px',
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+                display: 'block',
+                lineHeight: 1
+              }}>
+                🏪
+              </span>
+            </div>
+            <div>
+              <Title level={1} style={{ 
+                color: 'var(--bg-primary)',
+                marginBottom: '12px',
+                fontSize: '4rem',
+                fontWeight: '800',
+                textShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                lineHeight: '1.1',
+                letterSpacing: '1px'
+              }}>
+                Bin Sultan ERP
+              </Title>
+            </div>
+          </div>
+          
+          {/* Subtitle */}
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <Text style={{ 
+              color: 'rgba(0, 0, 0, 0.9)',
+              fontSize: '24px',
               fontWeight: '600',
-              background: colors.primary,
-              borderColor: colors.primary,
-              boxShadow: `0 4px 12px ${colors.primary}30`
-            }}
-          >
-            Refresh Data
-          </Button>
-          <Button 
-            size="large"
-            icon={<BarChartOutlined />}
-            style={{ 
-              borderRadius: '12px',
-              height: '48px',
-              padding: '0 32px',
-              fontSize: '16px',
-              fontWeight: '600'
-            }}
-          >
-            View Reports
-          </Button>
-        </Space>
+              display: 'block',
+              textShadow: '0 2px 10px rgba(0,0,0,0.2)',
+              lineHeight: '1.4',
+              marginBottom: '8px'
+            }}>
+              Welcome to your Business Intelligence Hub
+            </Text>
+            <Text style={{ 
+              color: 'rgba(0, 0, 0, 0.7)',
+              fontSize: '18px',
+              fontWeight: '500',
+              display: 'block',
+              marginTop: '8px',
+              textShadow: '0 1px 5px rgba(0,0,0,0.2)'
+            }}>
+              Real-time analytics, comprehensive reporting, and powerful insights
+            </Text>
+          </div>
+          
+        </div>
       </div>
 
       <Spin spinning={loading} size="large">
@@ -379,16 +421,27 @@ export default function Dashboard(){
             <Col xs={24} sm={12} lg={8} xl={4} key={index}>
               <Card
                 style={{
-                  background: card.bgGradient,
-                  border: 'none',
-                  borderRadius: '20px',
-                  boxShadow: '0 12px 32px rgba(0,0,0,0.15)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: '16px',
+                  boxShadow: 'var(--shadow-md)',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   cursor: 'pointer',
                   overflow: 'hidden',
-                  position: 'relative'
+                  position: 'relative',
+                  height: '180px',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}
-                styles={{ body: { padding: '28px 24px' } }}
+                styles={{ 
+                  body: { 
+                    padding: '28px 24px',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
+                  } 
+                }}
                 hoverable
                 className="kpi-card"
               >
@@ -404,24 +457,40 @@ export default function Dashboard(){
                   {card.icon}
                 </div>
                 
-                <div style={{ position: 'relative', zIndex: 1 }}>
-                  <Text style={{ 
-                    color: 'white', 
-                    fontSize: '14px', 
-                    fontWeight: '600',
-                    opacity: 0.9,
-                    display: 'block',
+                <div style={{ 
+                  position: 'relative', 
+                  zIndex: 1, 
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}>
+                  {/* Title */}
+                  <div>
+                    <Text style={{ 
+                      color: 'var(--text-primary)', 
+                      fontSize: '16px', 
+                      fontWeight: '700',
+                      display: 'block',
+                      marginBottom: '12px',
+                      lineHeight: '1.2'
+                    }}>
+                      {card.title}
+                    </Text>
+                  </div>
+                  
+                  {/* Value */}
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '12px',
                     marginBottom: '8px'
                   }}>
-                    {card.title}
-                  </Text>
-                  
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <Statistic
                       value={card.value}
                       precision={card.precision}
                       valueStyle={{ 
-                        color: 'white', 
+                        color: 'var(--brand-primary)', 
                         fontSize: '32px', 
                         fontWeight: '800',
                         lineHeight: '1'
@@ -430,8 +499,9 @@ export default function Dashboard(){
                     />
                   </div>
                   
-                  {card.growth !== undefined && (
-                    <div style={{ marginTop: '12px' }}>
+                  {/* Growth indicator */}
+                  <div>
+                    {card.growth !== undefined ? (
                       <Space align="center">
                         {card.growth >= 0 ? (
                           <RiseOutlined style={{ color: '#22c55e', fontSize: '14px' }} />
@@ -439,16 +509,17 @@ export default function Dashboard(){
                           <FallOutlined style={{ color: '#ef4444', fontSize: '14px' }} />
                         )}
                         <Text style={{ 
-                          color: 'white', 
-                          fontSize: '13px', 
-                          fontWeight: '600',
-                          opacity: 0.9
+                          color: 'var(--text-secondary)', 
+                          fontSize: '14px', 
+                          fontWeight: '600'
                         }}>
                           {Math.abs(card.growth)}% vs last week
                         </Text>
                       </Space>
-                    </div>
-                  )}
+                    ) : (
+                      <div style={{ height: '20px' }}></div>
+                    )}
+                  </div>
                 </div>
               </Card>
             </Col>
@@ -644,13 +715,7 @@ export default function Dashboard(){
             size="middle"
             scroll={{ x: 800 }}
             rowKey="id"
-            style={{
-              '& .ant-table-thead > tr > th': {
-                backgroundColor: '#f8fafc',
-                fontWeight: '600',
-                color: '#374151'
-              }
-            }}
+            className="recent-sales-table"
           />
         </Card>
 
@@ -760,7 +825,7 @@ export default function Dashboard(){
       </Spin>
 
       {/* Custom CSS for animations */}
-      <style jsx>{`
+      <style jsx="true">{`
         .kpi-card:hover {
           transform: translateY(-8px) scale(1.02);
           box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
@@ -777,6 +842,12 @@ export default function Dashboard(){
         
         .ant-statistic-content {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        .recent-sales-table .ant-table-thead > tr > th {
+          background-color: #f8fafc !important;
+          font-weight: 600 !important;
+          color: #374151 !important;
         }
         
         @keyframes pulse {
