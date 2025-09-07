@@ -12,7 +12,9 @@
     "production": "NODE_ENV=production",
     "setup": "node src/setup/setup.js",
     "upgrade": "node src/setup/upgrade.js",
-    "reset": "node src/setup/reset.js"
+    "reset": "node src/setup/reset.js",
+    "seed": "node scripts/seedData.js",
+    "seed:quick": "node scripts/quickSeed.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.509.0",
