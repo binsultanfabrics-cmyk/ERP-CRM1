@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, Table, Button, Space, Tag, Typography, Row, Col, Statistic, Modal, Form, Input, Select, App, Popconfirm, Drawer, Descriptions, Divider, Avatar } from 'antd';
 import { PlusOutlined, UserOutlined, EditOutlined, DeleteOutlined, EyeOutlined, ReloadOutlined, PhoneOutlined, MailOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -228,7 +228,7 @@ export default function Customer() {
                  <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
            👥 Bin Sultan Customer Management
          </Title>
-         <Text style={{ color: 'var(--text-secondary)' }}>Manage your customer database and relationships - Pakistan's Trusted Cloth Shop</Text>
+         <Text style={{ color: 'var(--text-secondary)' }}>Manage your customer database and relationships - Pakistan&apos;s Trusted Cloth Shop</Text>
       </div>
 
       {/* Stats Cards */}

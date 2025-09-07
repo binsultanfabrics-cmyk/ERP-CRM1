@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const { convertForModel } = require('@/utils/decimalConverter');
+
 const create = async (Model, req, res) => {
   try {
     // Generate product code if not provided
@@ -20,9 +22,12 @@ const create = async (Model, req, res) => {
       }
     }
 
+    // Convert numeric fields to Decimal128
+    const convertedData = convertForModel('Product', req.body);
+
     // Create product
     const product = await Model.create({
-      ...req.body,
+      ...convertedData,
       createdBy: req.admin._id,
     });
 
@@ -32,6 +37,7 @@ const create = async (Model, req, res) => {
       message: 'Product created successfully',
     });
   } catch (error) {
+    console.error('Product create error:', error);
     return res.status(400).json({
       success: false,
       result: null,

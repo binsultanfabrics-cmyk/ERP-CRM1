@@ -102,6 +102,31 @@ export const logout = async () => {
   }
 };
 
+export const checkAuth = async () => {
+  try {
+    const response = await axios.get(API_BASE_URL + `me?timestamp=${new Date().getTime()}`);
+    const { status, data } = response;
+
+    successHandler(
+      { data, status },
+      {
+        notifyOnSuccess: false,
+        notifyOnFailed: false,
+      }
+    );
+    return data;
+  } catch (error) {
+    // Don't show error notifications for auth check failures
+    const errorData = errorHandler(error);
+    // Ensure we return a failure response
+    return {
+      success: false,
+      result: null,
+      message: errorData.message || 'Authentication failed'
+    };
+  }
+};
+
 //  console.log(
 //    '🚀 Welcome to Bin Sultan! Did you know that we also offer commercial customization services? Contact us at hello@binsultan.com for more information.'
 //  );

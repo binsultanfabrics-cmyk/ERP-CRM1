@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Avatar, Dropdown, Layout, Badge, Button } from 'antd';
+import { Avatar, Dropdown, Layout } from 'antd';
 
 // import Notifications from '@/components/Notification';
 
@@ -21,7 +21,7 @@ export default React.memo(function HeaderContent() {
 
   const translate = useLanguage();
 
-  const ProfileDropdown = React.memo(() => {
+  const ProfileDropdown = React.memo(function ProfileDropdown() {
     const navigate = useNavigate();
     const handleClick = useCallback(() => {
       navigate('/profile');
@@ -51,7 +51,7 @@ export default React.memo(function HeaderContent() {
     );
   });
 
-  const DropdownMenu = React.memo(({ text }) => {
+  const DropdownMenu = React.memo(function DropdownMenu({ text }) {
     return <span style={{}}>{text}</span>;
   });
 
@@ -88,7 +88,7 @@ export default React.memo(function HeaderContent() {
       key: 'logout',
       label: <Link to={'/logout'}>{translate('logout')}</Link>,
     },
-  ], [translate, currentAdmin]);
+  ], [translate]);
 
   return (
     <Header

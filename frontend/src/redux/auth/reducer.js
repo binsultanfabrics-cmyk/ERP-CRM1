@@ -1,4 +1,5 @@
 import * as actionTypes from './types';
+import storePersist from '../storePersist';
 
 const INITIAL_STATE = {
   current: {},
@@ -8,45 +9,65 @@ const INITIAL_STATE = {
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
+  let newState;
+  
   switch (action.type) {
     case actionTypes.REQUEST_LOADING:
-      return {
+      newState = {
         ...state,
         isLoggedIn: false,
         isLoading: true,
       };
+      break;
+      
     case actionTypes.REQUEST_FAILED:
-      return INITIAL_STATE;
+      newState = {
+        ...INITIAL_STATE,
+        isLoading: false,
+      };
+      storePersist.remove('auth');
+      break;
 
     case actionTypes.REQUEST_SUCCESS:
-      return {
+      newState = {
         current: action.payload,
         isLoggedIn: true,
         isLoading: false,
         isSuccess: true,
       };
+      storePersist.set('auth', newState);
+      break;
 
     case actionTypes.REGISTER_SUCCESS:
-      return {
+      newState = {
         current: null,
         isLoggedIn: false,
         isLoading: false,
         isSuccess: true,
       };
+      storePersist.remove('auth');
+      break;
+      
     case actionTypes.LOGOUT_SUCCESS:
-      return INITIAL_STATE;
+      newState = INITIAL_STATE;
+      storePersist.remove('auth');
+      break;
 
     case actionTypes.LOGOUT_FAILED:
-      return {
+      newState = {
         current: action.payload,
         isLoggedIn: true,
         isLoading: false,
         isSuccess: true,
       };
+      storePersist.set('auth', newState);
+      break;
 
     default:
       return state;
   }
+  
+  return newState;
 };
 
 export default authReducer;

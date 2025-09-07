@@ -637,7 +637,7 @@ export default function POS() {
                         <br />
                         <Text style={{ color: 'var(--text-secondary)' }}>{product.code}</Text>
                         <br />
-                        <Text style={{ color: 'var(--text-secondary)' }}>Rs {product.pricing?.defaultPrice || 0}</Text>
+                        <Text style={{ color: 'var(--text-secondary)' }}>Rs {(parseFloat(product.pricing?.defaultPrice) || 0).toFixed(2)}</Text>
                       </Card>
                     </Col>
                   ))}
@@ -1326,7 +1326,7 @@ export default function POS() {
           </Form.Item>
 
           <Form.Item label="Change">
-            <Text strong>Rs {receivedAmount - totals.grandTotal}</Text>
+            <Text strong>Rs {(receivedAmount - totals.grandTotal).toFixed(2)}</Text>
           </Form.Item>
 
           <div style={{ textAlign: 'center', marginTop: 20 }}>
@@ -1373,10 +1373,10 @@ export default function POS() {
                   <Col>
                     <Text strong>{item.product.name}</Text>
                     <br />
-                    <Text style={{ color: 'var(--text-secondary)' }}>{item.qty} {item.unit} × Rs {item.price}</Text>
+                    <Text style={{ color: 'var(--text-secondary)' }}>{item.qty} {item.unit} × Rs {(parseFloat(item.price) || 0).toFixed(2)}</Text>
                   </Col>
                   <Col>
-                    <Text strong>Rs {item.total}</Text>
+                    <Text strong>Rs {(parseFloat(item.total) || 0).toFixed(2)}</Text>
                   </Col>
                 </Row>
               </div>
@@ -1386,19 +1386,19 @@ export default function POS() {
 
             <Row justify="space-between" style={{ marginBottom: 8 }}>
               <Col>Subtotal:</Col>
-              <Col>Rs {receiptData.subtotal}</Col>
+              <Col>Rs {(parseFloat(receiptData.subtotal) || 0).toFixed(2)}</Col>
             </Row>
             <Row justify="space-between" style={{ marginBottom: 8 }}>
               <Col>Discount:</Col>
-              <Col>Rs {receiptData.discount}</Col>
+              <Col>Rs {(parseFloat(receiptData.discount) || 0).toFixed(2)}</Col>
             </Row>
             <Row justify="space-between" style={{ marginBottom: 8 }}>
               <Col>Tax:</Col>
-              <Col>Rs {receiptData.tax}</Col>
+              <Col>Rs {(parseFloat(receiptData.tax) || 0).toFixed(2)}</Col>
             </Row>
             <Row justify="space-between" style={{ marginBottom: 16 }}>
               <Col><Text strong>Total:</Text></Col>
-              <Col><Text strong>Rs {receiptData.grandTotal}</Text></Col>
+              <Col><Text strong>Rs {(parseFloat(receiptData.grandTotal) || 0).toFixed(2)}</Text></Col>
             </Row>
 
             <Divider />

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Card, Typography, Space, Divider, message } from 'antd';
+import { useState, useEffect } from 'react';
+import { Form, Input, Button, Card, Typography, Divider } from 'antd';
 import { UserOutlined, LockOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -201,7 +201,7 @@ export default function ModernLogin() {
               style={{ width: '100%' }}
               initialValues={{
                 remember: true,
-                email: 'admin@admin.com',
+                email: 'admin@binsultan.com',
                 password: 'admin123',
               }}
             >
@@ -282,7 +282,7 @@ export default function ModernLogin() {
 
               <Divider style={{ margin: 'var(--space-6) 0' }}>
                 <Text style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-                  Don't have an account?
+                  Don&apos;t have an account?
                 </Text>
               </Divider>
 

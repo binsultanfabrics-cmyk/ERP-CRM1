@@ -1,4 +1,4 @@
-import { Select, Tag } from 'antd';
+import { Select } from 'antd';
 import { generate as uniqueId } from 'shortid';
 
 export default function SelectTag({ options, defaultValue }) {
@@ -10,10 +10,10 @@ export default function SelectTag({ options, defaultValue }) {
       }}
     >
       {options?.map((value) => {
-        if (option)
+        if (typeof value === 'object' && value.value)
           return (
-            <Select.Option key={`${uniqueId()}`} value={option.value}>
-              {translate(option.label)}
+            <Select.Option key={`${uniqueId()}`} value={value.value}>
+              {value.label}
             </Select.Option>
           );
         else

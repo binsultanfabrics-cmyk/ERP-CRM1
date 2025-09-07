@@ -78,10 +78,10 @@ export default function Inventory() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    dispatch(crud.list({ entity: 'product' }));
-    dispatch(crud.list({ entity: 'inventoryroll' }));
-    dispatch(crud.list({ entity: 'stocktxn' }));
-    dispatch(crud.list({ entity: 'supplier' }));
+    dispatch(crud.list({ entity: 'product', options: { page: 1, items: 100 } }));
+    dispatch(crud.list({ entity: 'inventoryroll', options: { page: 1, items: 100 } }));
+    dispatch(crud.list({ entity: 'stocktxn', options: { page: 1, items: 100 } }));
+    dispatch(crud.list({ entity: 'supplier', options: { page: 1, items: 100 } }));
   }, []);
 
   // Ensure data exists and has the correct structure
@@ -175,10 +175,12 @@ export default function Inventory() {
       key: 'status',
       render: (status) => {
         const statusConfig = {
-          active: { color: 'green', text: 'Active' },
-          reserved: { color: 'orange', text: 'Reserved' },
-          damaged: { color: 'red', text: 'Damaged' },
-          disposed: { color: 'default', text: 'Disposed' }
+          'Available': { color: 'green', text: 'Available' },
+          'Low Stock': { color: 'orange', text: 'Low Stock' },
+          'Out of Stock': { color: 'red', text: 'Out of Stock' },
+          'Damaged': { color: 'red', text: 'Damaged' },
+          'Disposed': { color: 'default', text: 'Disposed' },
+          'Reserved': { color: 'blue', text: 'Reserved' }
         };
         
         const config = statusConfig[status] || { color: 'default', text: status };
@@ -187,13 +189,13 @@ export default function Inventory() {
     },
     {
       title: 'Location',
-      dataIndex: 'location',
-      key: 'location'
+      dataIndex: 'locationName',
+      key: 'locationName'
     },
     {
       title: 'Received Date',
-      dataIndex: 'receivedDate',
-      key: 'receivedDate',
+      dataIndex: 'receivedAt',
+      key: 'receivedAt',
       render: (date) => date ? dayjs(date).format('DD/MM/YYYY') : 'N/A'
     },
     {
@@ -214,6 +216,14 @@ export default function Inventory() {
             onClick={() => handleEditRoll(record)}
           >
             Edit
+          </Button>
+          <Button 
+            type="text" 
+            icon={<ExclamationCircleOutlined />}
+            onClick={() => handleAdjustment(record)}
+            style={{ color: '#fa8c16' }}
+          >
+            Restock
           </Button>
           <Popconfirm
             title="Are you sure you want to delete this roll?"
@@ -238,8 +248,8 @@ export default function Inventory() {
   const transactionColumns = [
     {
       title: 'Date',
-      dataIndex: 'date',
-      key: 'date',
+      dataIndex: 'created',
+      key: 'created',
       render: (date) => date ? dayjs(date).format('DD/MM/YYYY HH:mm') : 'N/A'
     },
     {
@@ -268,14 +278,14 @@ export default function Inventory() {
     },
     {
       title: 'Quantity',
-      dataIndex: 'quantity',
-      key: 'quantity',
+      dataIndex: 'qty',
+      key: 'qty',
       render: (quantity, record) => `${quantity || 0} ${record.unit || 'units'}`
     },
     {
-      title: 'Reason',
-      dataIndex: 'reason',
-      key: 'reason'
+      title: 'Reference Type',
+      dataIndex: 'refType',
+      key: 'refType'
     },
     {
       title: 'Notes',
@@ -346,6 +356,7 @@ export default function Inventory() {
       
       // Create inventory roll
       const rollData = {
+        rollNumber: `ROLL-${Date.now()}`,
         product: values.product,
         supplier: values.supplier,
         batchNumber: values.batchNumber,
@@ -354,9 +365,9 @@ export default function Inventory() {
         remainingLength: values.quantity,
         unit: values.unit,
         costPerUnit: values.costPerUnit,
-        receivedDate: values.receivedDate.toISOString(),
-        status: 'active',
-        location: values.location || 'Main Store',
+        receivedAt: values.receivedDate.toISOString(),
+        status: 'Available',
+        locationName: values.location || 'Main Store',
         notes: values.notes
       };
 
@@ -373,11 +384,13 @@ export default function Inventory() {
             product: values.product,
             roll: rollResult.payload.result._id,
             type: 'IN',
-            quantity: values.quantity,
+            qty: values.quantity,
             unit: values.unit,
-            reason: 'GRN',
-            reference: rollResult.payload.result._id,
-            date: new Date().toISOString(),
+            refType: 'Purchase',
+            refId: rollResult.payload.result._id,
+            refModel: 'PurchaseOrder',
+            previousQty: 0,
+            newQty: values.quantity,
             notes: `Goods received from ${suppliersList.find(s => s._id === values.supplier)?.name}`
           }
         }));
@@ -385,8 +398,8 @@ export default function Inventory() {
         message.success('GRN created successfully!');
         setIsGRNModalVisible(false);
         grnForm.resetFields();
-        dispatch(crud.list({ entity: 'inventoryroll' }));
-        dispatch(crud.list({ entity: 'stocktxn' }));
+        dispatch(crud.list({ entity: 'inventoryroll', options: { page: 1, items: 100 } }));
+        dispatch(crud.list({ entity: 'stocktxn', options: { page: 1, items: 100 } }));
       }
     } catch (error) {
       message.error('Failed to create GRN');
@@ -400,7 +413,11 @@ export default function Inventory() {
     setSelectedProduct(roll);
     setIsAdjustmentModalVisible(true);
     adjustmentForm.resetFields();
+    adjustmentForm.setFieldsValue({
+      reason: 'restock'
+    });
   };
+
 
   const submitAdjustment = async (values) => {
     try {
@@ -432,12 +449,14 @@ export default function Inventory() {
           product: selectedProduct.product,
           roll: selectedProduct._id,
           type: 'ADJUST',
-          quantity: Math.abs(adjustmentQuantity),
+          qty: Math.abs(adjustmentQuantity),
           unit: selectedProduct.unit,
-          reason: values.reason,
-          reference: selectedProduct._id,
-          date: new Date().toISOString(),
-          notes: values.notes
+          refType: 'Adjustment',
+          refId: selectedProduct._id,
+          refModel: 'StockAdjustment',
+          previousQty: currentRemainingLength,
+          newQty: newRemainingLength,
+          notes: `${values.reason}: ${values.notes || 'Stock adjustment'}`
         }
       }));
 
@@ -445,8 +464,8 @@ export default function Inventory() {
       setIsAdjustmentModalVisible(false);
       adjustmentForm.resetFields();
       setSelectedProduct(null);
-      dispatch(crud.list({ entity: 'inventoryroll' }));
-      dispatch(crud.list({ entity: 'stocktxn' }));
+      dispatch(crud.list({ entity: 'inventoryroll', options: { page: 1, items: 100 } }));
+      dispatch(crud.list({ entity: 'stocktxn', options: { page: 1, items: 100 } }));
     } catch (error) {
       message.error('Failed to adjust stock');
     } finally {
@@ -454,13 +473,14 @@ export default function Inventory() {
     }
   };
 
+
   // Handle roll editing
   const handleEditRoll = (roll) => {
     setEditingRoll(roll);
     rollForm.setFieldsValue({
       batchNumber: roll.batchNumber,
       barcode: roll.barcode,
-      location: roll.location,
+      locationName: roll.locationName,
       status: roll.status,
       notes: roll.notes
     });
@@ -479,7 +499,7 @@ export default function Inventory() {
       setIsRollModalVisible(false);
       rollForm.resetFields();
       setEditingRoll(null);
-      dispatch(crud.list({ entity: 'inventoryroll' }));
+      dispatch(crud.list({ entity: 'inventoryroll', options: { page: 1, items: 100 } }));
     } catch (error) {
       message.error('Failed to update roll');
     } finally {
@@ -493,7 +513,7 @@ export default function Inventory() {
       setLoading(true);
       await dispatch(crud.delete({ entity: 'inventoryroll', id: rollId }));
       message.success('Roll deleted successfully');
-      dispatch(crud.list({ entity: 'inventoryroll' }));
+      dispatch(crud.list({ entity: 'inventoryroll', options: { page: 1, items: 100 } }));
     } catch (error) {
       message.error('Failed to delete roll');
     } finally {
@@ -569,8 +589,10 @@ export default function Inventory() {
               <Button 
                 icon={<ReloadOutlined />}
                 onClick={() => {
-                  dispatch(crud.list({ entity: 'inventoryroll' }));
-                  dispatch(crud.list({ entity: 'stocktxn' }));
+                  dispatch(crud.list({ entity: 'product', options: { page: 1, items: 100 } }));
+                  dispatch(crud.list({ entity: 'inventoryroll', options: { page: 1, items: 100 } }));
+                  dispatch(crud.list({ entity: 'stocktxn', options: { page: 1, items: 100 } }));
+                  dispatch(crud.list({ entity: 'supplier', options: { page: 1, items: 100 } }));
                 }}
               >
                 Refresh
@@ -824,16 +846,18 @@ export default function Inventory() {
             <Input placeholder="Barcode" />
           </Form.Item>
           
-          <Form.Item label="Location" name="location">
+          <Form.Item label="Location" name="locationName">
             <Input placeholder="Storage location" />
           </Form.Item>
           
           <Form.Item label="Status" name="status">
             <Select>
-              <Option value="active">Active</Option>
-              <Option value="reserved">Reserved</Option>
-              <Option value="damaged">Damaged</Option>
-              <Option value="disposed">Disposed</Option>
+              <Option value="Available">Available</Option>
+              <Option value="Low Stock">Low Stock</Option>
+              <Option value="Out of Stock">Out of Stock</Option>
+              <Option value="Damaged">Damaged</Option>
+              <Option value="Disposed">Disposed</Option>
+              <Option value="Reserved">Reserved</Option>
             </Select>
           </Form.Item>
           
@@ -861,7 +885,7 @@ export default function Inventory() {
 
       {/* Stock Adjustment Modal */}
       <Modal
-        title="🔄 Stock Adjustment"
+        title="📦 Restock Inventory"
         open={isAdjustmentModalVisible}
         onCancel={() => setIsAdjustmentModalVisible(false)}
         footer={null}
@@ -870,7 +894,7 @@ export default function Inventory() {
         {selectedProduct && (
           <div>
             <Alert
-              message={`Adjusting stock for: ${productsList.find(p => p._id === selectedProduct.product)?.name}`}
+              message={`Restocking: ${productsList.find(p => p._id === selectedProduct.product)?.name}`}
               description={`Current stock: ${(parseFloat(selectedProduct.remainingLength) || 0).toFixed(2)} ${selectedProduct.unit}`}
               type="info"
               showIcon
@@ -879,13 +903,13 @@ export default function Inventory() {
             
             <Form form={adjustmentForm} onFinish={submitAdjustment} layout="vertical">
               <Form.Item
-                label="Adjustment Type"
+                label="Restock Type"
                 name="adjustmentType"
-                rules={[{ required: true, message: 'Please select adjustment type' }]}
+                rules={[{ required: true, message: 'Please select restock type' }]}
               >
                 <Select>
-                  <Option value="increase">Increase Stock</Option>
-                  <Option value="decrease">Decrease Stock</Option>
+                  <Option value="increase">Add Stock</Option>
+                  <Option value="decrease">Remove Stock</Option>
                 </Select>
               </Form.Item>
               
@@ -898,7 +922,7 @@ export default function Inventory() {
                   min={0.01}
                   step={0.01}
                   style={{ width: '100%' }}
-                  placeholder="Adjustment quantity"
+                  placeholder="Restock quantity"
                 />
               </Form.Item>
               
@@ -906,11 +930,15 @@ export default function Inventory() {
                 label="Reason"
                 name="reason"
                 rules={[{ required: true, message: 'Please enter reason' }]}
+                initialValue="restock"
               >
                 <Select>
+                  <Option value="restock">Restock (Admin)</Option>
+                  <Option value="purchase">New Purchase</Option>
+                  <Option value="return">Return from Customer</Option>
+                  <Option value="correction">Stock Correction</Option>
                   <Option value="damage">Damage/Loss</Option>
                   <Option value="theft">Theft</Option>
-                  <Option value="correction">Stock Correction</Option>
                   <Option value="quality">Quality Issue</Option>
                   <Option value="other">Other</Option>
                 </Select>
@@ -921,10 +949,12 @@ export default function Inventory() {
                 name="newStatus"
               >
                 <Select placeholder="Keep current status">
-                  <Option value="active">Active</Option>
-                  <Option value="reserved">Reserved</Option>
-                  <Option value="damaged">Damaged</Option>
-                  <Option value="disposed">Disposed</Option>
+                  <Option value="Available">Available</Option>
+                  <Option value="Low Stock">Low Stock</Option>
+                  <Option value="Out of Stock">Out of Stock</Option>
+                  <Option value="Damaged">Damaged</Option>
+                  <Option value="Disposed">Disposed</Option>
+                  <Option value="Reserved">Reserved</Option>
                 </Select>
               </Form.Item>
               
@@ -943,7 +973,7 @@ export default function Inventory() {
                     loading={loading}
                     icon={<RollbackOutlined />}
                   >
-                    Apply Adjustment
+                    Apply Restock
                   </Button>
                 </Space>
               </div>
@@ -951,6 +981,7 @@ export default function Inventory() {
           </div>
         )}
       </Modal>
+
 
       {/* Roll Details Drawer */}
       <Drawer
@@ -979,18 +1010,18 @@ export default function Inventory() {
                 {(parseFloat(viewingRoll.remainingLength) || 0).toFixed(2)} {viewingRoll.unit}
               </Descriptions.Item>
               <Descriptions.Item label="Status">
-                <Tag color={viewingRoll.status === 'active' ? 'green' : 'red'}>
+                <Tag color={viewingRoll.status === 'Available' ? 'green' : 'red'}>
                   {viewingRoll.status}
                 </Tag>
               </Descriptions.Item>
               <Descriptions.Item label="Location">
-                {viewingRoll.location}
+                {viewingRoll.locationName}
               </Descriptions.Item>
               <Descriptions.Item label="Received Date">
-                {dayjs(viewingRoll.receivedDate).format('DD/MM/YYYY')}
+                {dayjs(viewingRoll.receivedAt).format('DD/MM/YYYY')}
               </Descriptions.Item>
               <Descriptions.Item label="Cost Per Unit">
-                Rs {viewingRoll.costPerUnit}
+                Rs {(parseFloat(viewingRoll.costPerUnit) || 0).toFixed(2)}
               </Descriptions.Item>
             </Descriptions>
 

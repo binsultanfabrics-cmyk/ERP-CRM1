@@ -87,8 +87,12 @@ export default function Supplier() {
   const supplierStats = {
     totalSuppliers: suppliersList.length,
     activeSuppliers: suppliersList.filter(s => s.status === 'active').length,
-    totalPurchases: rollsList.reduce((sum, roll) => sum + (roll.costPerUnit * roll.initLength), 0),
-    pendingPayments: suppliersList.reduce((sum, supplier) => sum + (supplier.outstandingBalance || 0), 0),
+    totalPurchases: rollsList.reduce((sum, roll) => {
+      const costPerUnit = parseFloat(roll.costPerUnit) || 0;
+      const initLength = parseFloat(roll.initLength) || 0;
+      return sum + (costPerUnit * initLength);
+    }, 0),
+    pendingPayments: suppliersList.reduce((sum, supplier) => sum + (parseFloat(supplier.outstandingBalance) || 0), 0),
     topSuppliers: suppliersList
       .sort((a, b) => (b.totalPurchases || 0) - (a.totalPurchases || 0))
       .slice(0, 5)
@@ -219,13 +223,20 @@ export default function Supplier() {
   // Calculate supplier performance metrics
   const calculateSupplierMetrics = (supplier) => {
     const supplierRolls = rollsList.filter(roll => roll.supplier === supplier._id);
-    const totalPurchases = supplierRolls.reduce((sum, roll) => sum + (roll.costPerUnit * roll.initLength), 0);
-    const totalStock = supplierRolls.reduce((sum, roll) => sum + roll.remainingLength, 0);
+    const totalPurchases = supplierRolls.reduce((sum, roll) => {
+      const costPerUnit = parseFloat(roll.costPerUnit) || 0;
+      const initLength = parseFloat(roll.initLength) || 0;
+      return sum + (costPerUnit * initLength);
+    }, 0);
+    const totalStock = supplierRolls.reduce((sum, roll) => {
+      const remainingLength = parseFloat(roll.remainingLength) || 0;
+      return sum + remainingLength;
+    }, 0);
     const averageDeliveryTime = supplier.averageDeliveryTime || 7; // days
     
     return {
-      totalPurchases,
-      totalStock,
+      totalPurchases: totalPurchases || 0,
+      totalStock: totalStock || 0,
       averageDeliveryTime,
       onTimeDelivery: supplier.onTimeDelivery || 85, // percentage
       qualityRating: supplier.qualityRating || 4.2 // out of 5
@@ -273,8 +284,8 @@ export default function Supplier() {
         const metrics = calculateSupplierMetrics(record);
         return (
           <div>
-            <div>Total: Rs {metrics.totalPurchases.toFixed(2)}</div>
-            <div>Stock: {metrics.totalStock.toFixed(2)} units</div>
+            <div>Total: Rs {(metrics.totalPurchases || 0).toFixed(2)}</div>
+            <div>Stock: {(metrics.totalStock || 0).toFixed(2)} units</div>
             <div>Rating: {metrics.qualityRating}/5</div>
           </div>
         );
@@ -383,7 +394,7 @@ export default function Supplier() {
           <Card>
             <Statistic
               title="Total Purchases"
-              value={supplierStats.totalPurchases.toFixed(2)}
+              value={(supplierStats.totalPurchases || 0).toFixed(2)}
               prefix={<DollarOutlined />}
               suffix="Rs"
             />
@@ -393,7 +404,7 @@ export default function Supplier() {
           <Card>
             <Statistic
               title="Pending Payments"
-              value={supplierStats.pendingPayments.toFixed(2)}
+              value={(supplierStats.pendingPayments || 0).toFixed(2)}
               prefix={<CreditCardOutlined />}
               suffix="Rs"
               valueStyle={{ color: '#fa8c16' }}
@@ -415,7 +426,7 @@ export default function Supplier() {
                     <div style={{ marginTop: 8 }}>
                       <Text strong>{supplier.name}</Text>
                       <br />
-                      <Text style={{ color: 'var(--text-secondary)' }}>Rs {metrics.totalPurchases.toFixed(2)}</Text>
+                      <Text style={{ color: 'var(--text-secondary)' }}>Rs {(metrics.totalPurchases || 0).toFixed(2)}</Text>
                       <br />
                       <Progress 
                         percent={metrics.onTimeDelivery} 
@@ -718,7 +729,7 @@ export default function Supplier() {
                 {viewingSupplier.paymentTerms}
               </Descriptions.Item>
               <Descriptions.Item label="Credit Limit">
-                Rs {viewingSupplier.creditLimit || 0}
+                Rs {(parseFloat(viewingSupplier.creditLimit) || 0).toFixed(2)}
               </Descriptions.Item>
               <Descriptions.Item label="Status">
                 <Tag color={viewingSupplier.status === 'active' ? 'green' : 'red'}>
@@ -742,14 +753,14 @@ export default function Supplier() {
                       <Col span={12}>
                         <Statistic
                           title="Total Purchases"
-                          value={metrics.totalPurchases.toFixed(2)}
+                          value={(metrics.totalPurchases || 0).toFixed(2)}
                           prefix="Rs"
                         />
                       </Col>
                       <Col span={12}>
                         <Statistic
                           title="Current Stock"
-                          value={metrics.totalStock.toFixed(2)}
+                          value={(metrics.totalStock || 0).toFixed(2)}
                           suffix="units"
                         />
                       </Col>

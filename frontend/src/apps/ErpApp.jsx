@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +23,6 @@ const renderModule = () => {
 };
 
 export default React.memo(function ErpCrmApp() {
-  const { isMobile } = useResponsive();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [activeModule, setActiveModule] = useState("dashboard");
@@ -39,7 +38,7 @@ export default React.memo(function ErpCrmApp() {
     }
   };
 
-  const { isSuccess: settingIsloaded } = useSelector(selectSettings);
+  const { isSuccess: settingIsloaded, isLoading: settingsLoading } = useSelector(selectSettings);
 
   // const useEffect(() => {
   //   const { loadDefaultLang } = storePersist.get('firstVisit');
@@ -47,6 +46,11 @@ export default React.memo(function ErpCrmApp() {
   //     window.localStorage.setItem('firstVisit', JSON.stringify({ loadDefaultLang: true }));
   //   }
   // }, [appSettings]);
+
+  // Show loading while settings are loading
+  if (settingsLoading || !settingIsloaded) {
+    return <PageLoader />;
+  }
 
   if (settingIsloaded) {
     return (

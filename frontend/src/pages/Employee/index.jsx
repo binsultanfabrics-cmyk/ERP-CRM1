@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, Table, Button, Space, Tag, Typography, Row, Col, Statistic, Modal, Form, Input, Select, Popconfirm, Drawer, Descriptions, Divider, Avatar, DatePicker, App } from 'antd';
 import { PlusOutlined, TeamOutlined, EditOutlined, DeleteOutlined, EyeOutlined, ReloadOutlined, PhoneOutlined, MailOutlined, UserOutlined, CalendarOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -233,7 +233,7 @@ export default function Employee() {
                  <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
            👥 Bin Sultan Employee Management
          </Title>
-         <Text style={{ color: 'var(--text-secondary)' }}>Manage your staff and team members - Pakistan's Premier Cloth Shop Team</Text>
+         <Text style={{ color: 'var(--text-secondary)' }}>Manage your staff and team members - Pakistan&apos;s Premier Cloth Shop Team</Text>
       </div>
 
       {/* Stats Cards */}
@@ -540,7 +540,7 @@ export default function Employee() {
                 }
               </Descriptions.Item>
               <Descriptions.Item label="Salary">
-                                 Rs {viewingEmployee.salary || 'N/A'}
+                                 Rs {viewingEmployee.salary ? (parseFloat(viewingEmployee.salary)).toFixed(2) : 'N/A'}
               </Descriptions.Item>
               <Descriptions.Item label="Address" span={3}>
                 {viewingEmployee.address || 'N/A'}

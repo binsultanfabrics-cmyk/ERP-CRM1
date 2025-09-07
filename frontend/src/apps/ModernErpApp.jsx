@@ -15,7 +15,6 @@ import AppRouter from '@/router/AppRouter';
 import useResponsive from '@/hooks/useResponsive';
 
 export default React.memo(function ModernErpApp() {
-  const { isMobile } = useResponsive();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [activeModule, setActiveModule] = useState("dashboard");

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, Table, Button, Space, Tag, Typography, Row, Col, Statistic, Progress, Modal, Form, Input, Select, InputNumber, Popconfirm, Drawer, Descriptions, Divider, App } from 'antd';
 import { PlusOutlined, ShoppingOutlined, AlertOutlined, DollarOutlined, EditOutlined, DeleteOutlined, EyeOutlined, ReloadOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,8 +26,8 @@ export default function Product() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(crud.list({ entity: 'product' }));
-    dispatch(crud.list({ entity: 'supplier' }));
+    dispatch(crud.list({ entity: 'product', options: { page: 1, items: 100 } }));
+    dispatch(crud.list({ entity: 'supplier', options: { page: 1, items: 100 } }));
   }, []);
 
   // Ensure data exists and has the correct structure
@@ -52,9 +52,7 @@ export default function Product() {
       maxSalePrice: product.pricing?.maxSalePrice,
       costPrice: product.pricing?.costPrice,
       defaultUnit: product.pricing?.defaultUnit,
-      totalStock: product.totalStock,
-      supplier: product.supplier?._id,
-      minStockLevel: product.minStockLevel || 5
+      supplier: product.supplier?._id
     });
     setIsModalVisible(true);
   };
@@ -69,7 +67,7 @@ export default function Product() {
       setLoading(true);
       await dispatch(crud.delete({ entity: 'product', id: productId }));
       message.success('Product deleted successfully');
-      dispatch(crud.list({ entity: 'product' }));
+      dispatch(crud.list({ entity: 'product', options: { page: 1, items: 100 } }));
     } catch (error) {
       message.error('Failed to delete product');
     } finally {
@@ -92,9 +90,7 @@ export default function Product() {
           costPrice: values.costPrice,
           defaultUnit: values.defaultUnit
         },
-        totalStock: values.totalStock,
-        supplier: values.supplier,
-        minStockLevel: values.minStockLevel
+        supplier: values.supplier
       };
 
       if (editingProduct) {
@@ -107,7 +103,7 @@ export default function Product() {
 
       setIsModalVisible(false);
       form.resetFields();
-      dispatch(crud.list({ entity: 'product' }));
+      dispatch(crud.list({ entity: 'product', options: { page: 1, items: 100 } }));
     } catch (error) {
       message.error('Failed to save product');
     } finally {
@@ -116,7 +112,7 @@ export default function Product() {
   };
 
   const handleRefresh = () => {
-    dispatch(crud.list({ entity: 'product' }));
+    dispatch(crud.list({ entity: 'product', options: { page: 1, items: 100 } }));
     message.success('Data refreshed');
   };
 
@@ -165,9 +161,9 @@ export default function Product() {
       key: 'pricing',
       render: (_, record) => (
         <div>
-          <Text>Min: Rs {parseFloat(record.pricing?.minSalePrice) || 0}</Text>
+          <Text>Min: Rs {(parseFloat(record.pricing?.minSalePrice) || 0).toFixed(2)}</Text>
           <br />
-          <Text style={{ color: 'var(--text-secondary)' }}>Max: Rs {parseFloat(record.pricing?.maxSalePrice) || 0}</Text>
+          <Text style={{ color: 'var(--text-secondary)' }}>Max: Rs {(parseFloat(record.pricing?.maxSalePrice) || 0).toFixed(2)}</Text>
         </div>
       )
     },
@@ -278,7 +274,7 @@ export default function Product() {
                  <Title level={2} style={{ margin: 0, color: 'var(--brand-primary)' }}>
            🧵 Bin Sultan Product Management
          </Title>
-         <Text style={{ color: 'var(--text-secondary)' }}>Manage your fabric inventory and products - Pakistan's Premier Cloth Shop</Text>
+         <Text style={{ color: 'var(--text-secondary)' }}>Manage your fabric inventory and products - Pakistan&apos;s Premier Cloth Shop</Text>
       </div>
 
       {/* Stats Cards */}
@@ -508,40 +504,14 @@ export default function Product() {
                  </Select>
               </Form.Item>
             </Col>
-            <Col span={8}>
-              <Form.Item
-                name="totalStock"
-                label="Total Stock"
-                rules={[{ required: true, message: 'Please enter total stock' }]}
-              >
-                <InputNumber
-                  min={0}
-                  step={0.1}
-                  style={{ width: '100%' }}
-                  placeholder="0"
-                />
-              </Form.Item>
-            </Col>
-            <Col span={8}>
-              <Form.Item
-                name="minStockLevel"
-                label="Min Stock Level"
-                rules={[{ required: true, message: 'Please enter min stock level' }]}
-              >
-                <InputNumber
-                  min={0}
-                  style={{ width: '100%' }}
-                  placeholder="5"
-                />
-              </Form.Item>
-            </Col>
           </Row>
 
                    <Form.Item
            name="supplier"
            label="Supplier"
+           rules={[{ required: true, message: 'Please select a supplier' }]}
          >
-           <Select placeholder="Select supplier" allowClear>
+           <Select placeholder="Select supplier">
              {suppliersList.map(supplier => (
                <Option key={supplier._id} value={supplier._id}>
                  {supplier.name}
@@ -621,13 +591,13 @@ export default function Product() {
             <Title level={4}>Pricing Information</Title>
             <Descriptions column={2} bordered>
               <Descriptions.Item label="Min Sale Price">
-                Rs {parseFloat(viewingProduct.pricing?.minSalePrice) || 0}
+                Rs {(parseFloat(viewingProduct.pricing?.minSalePrice) || 0).toFixed(2)}
               </Descriptions.Item>
               <Descriptions.Item label="Max Sale Price">
-                Rs {parseFloat(viewingProduct.pricing?.maxSalePrice) || 0}
+                Rs {(parseFloat(viewingProduct.pricing?.maxSalePrice) || 0).toFixed(2)}
               </Descriptions.Item>
               <Descriptions.Item label="Cost Price">
-                Rs {parseFloat(viewingProduct.pricing?.costPrice) || 0}
+                Rs {(parseFloat(viewingProduct.pricing?.costPrice) || 0).toFixed(2)}
               </Descriptions.Item>
               <Descriptions.Item label="Default Unit">
                 {viewingProduct.pricing?.defaultUnit || 'N/A'}

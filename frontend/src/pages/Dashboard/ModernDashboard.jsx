@@ -99,6 +99,7 @@ export default function ModernDashboard(){
       suffix: 'Rs',
       color: 'var(--accent)',
       bgGradient: 'var(--gradient-accent)',
+      precision: 2,
       growth: dashboardData.salesGrowth,
       icon: '💰',
       trend: dashboardData.salesGrowth >= 0 ? 'up' : 'down'
@@ -244,7 +245,7 @@ export default function ModernDashboard(){
       key: 'total',
       render: (total) => (
         <Text strong style={{ color: 'var(--accent)', fontSize: '14px' }}>
-          Rs {parseFloat(total || 0).toLocaleString()}
+          Rs {parseFloat(total || 0).toFixed(2)}
         </Text>
       )
     },

@@ -136,6 +136,34 @@ export const logout = () => async (dispatch) => {
   }
 };
 
+export const checkAuth = () => async (dispatch) => {
+  dispatch({
+    type: actionTypes.REQUEST_LOADING,
+  });
+  
+  const data = await authService.checkAuth();
+
+  if (data.success === true) {
+    const auth_state = {
+      current: data.result,
+      isLoggedIn: true,
+      isLoading: false,
+      isSuccess: true,
+    };
+    window.localStorage.setItem('auth', JSON.stringify(auth_state));
+    dispatch({
+      type: actionTypes.REQUEST_SUCCESS,
+      payload: data.result,
+    });
+  } else {
+    // Clear invalid auth state
+    window.localStorage.removeItem('auth');
+    dispatch({
+      type: actionTypes.REQUEST_FAILED,
+    });
+  }
+};
+
 export const updateProfile =
   ({ entity, jsonData }) =>
   async (dispatch) => {

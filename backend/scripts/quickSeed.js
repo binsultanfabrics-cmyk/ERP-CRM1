@@ -3,6 +3,7 @@ require('dotenv').config();
 
 // Import all models
 const Admin = require('../src/models/coreModels/Admin');
+const AdminPassword = require('../src/models/coreModels/AdminPassword');
 const Role = require('../src/models/appModels/Role');
 const Permission = require('../src/models/appModels/Permission');
 const Client = require('../src/models/appModels/Client');
@@ -37,11 +38,60 @@ const quickData = {
     'Muhammad Asif', 'Aisha Bibi', 'Hassan Ali', 'Fatima Sheikh', 'Usman Khan'
   ],
   products: [
+    // Cotton Fabrics
     { name: 'Premium Cotton Lawn', fabricType: 'Cotton', category: 'Summer Wear' },
-    { name: 'Silk Chiffon', fabricType: 'Silk', category: 'Formal Wear' },
     { name: 'Cotton Khadi', fabricType: 'Cotton', category: 'Traditional' },
+    { name: 'Cotton Voile', fabricType: 'Cotton', category: 'Summer Wear' },
+    { name: 'Cotton Poplin', fabricType: 'Cotton', category: 'Shirt Material' },
+    { name: 'Cotton Jersey', fabricType: 'Cotton', category: 'T-Shirt Material' },
+    
+    // Silk Fabrics
+    { name: 'Silk Chiffon', fabricType: 'Silk', category: 'Formal Wear' },
+    { name: 'Silk Organza', fabricType: 'Silk', category: 'Bridal Wear' },
+    { name: 'Silk Satin', fabricType: 'Silk', category: 'Formal Wear' },
+    { name: 'Silk Georgette', fabricType: 'Silk', category: 'Formal Wear' },
+    
+    // Wool Fabrics
     { name: 'Woolen Suiting', fabricType: 'Wool', category: 'Winter Wear' },
-    { name: 'Polyester Georgette', fabricType: 'Polyester', category: 'Party Wear' }
+    { name: 'Woolen Tweed', fabricType: 'Wool', category: 'Winter Suiting' },
+    { name: 'Woolen Flannel', fabricType: 'Wool', category: 'Winter Wear' },
+    
+    // Polyester Fabrics
+    { name: 'Polyester Georgette', fabricType: 'Polyester', category: 'Party Wear' },
+    { name: 'Polyester Crepe', fabricType: 'Polyester', category: 'Party Wear' },
+    { name: 'Polyester Chiffon', fabricType: 'Polyester', category: 'Party Wear' },
+    
+    // Ready-Made Garments
+    { name: 'Men\'s Shalwar Kameez', fabricType: 'Cotton', category: 'Ready Made' },
+    { name: 'Women\'s Shalwar Kameez', fabricType: 'Cotton', category: 'Ready Made' },
+    { name: 'Men\'s Kurta', fabricType: 'Cotton', category: 'Ready Made' },
+    { name: 'Women\'s Kurta', fabricType: 'Cotton', category: 'Ready Made' },
+    
+    // Home Textiles
+    { name: 'Bed Sheet Set', fabricType: 'Cotton', category: 'Home Textiles' },
+    { name: 'Pillow Covers', fabricType: 'Cotton', category: 'Home Textiles' },
+    { name: 'Bath Towels', fabricType: 'Cotton', category: 'Home Textiles' },
+    { name: 'Curtains', fabricType: 'Cotton', category: 'Home Textiles' },
+    
+    // Accessories
+    { name: 'Scarf', fabricType: 'Silk', category: 'Accessories' },
+    { name: 'Stole', fabricType: 'Silk', category: 'Accessories' },
+    { name: 'Shawl', fabricType: 'Wool', category: 'Accessories' },
+    { name: 'Tie', fabricType: 'Silk', category: 'Accessories' },
+    
+    // Special Fabrics
+    { name: 'Embroidered Fabric', fabricType: 'Cotton', category: 'Traditional' },
+    { name: 'Printed Fabric', fabricType: 'Cotton', category: 'Casual Wear' },
+    { name: 'Block Print Fabric', fabricType: 'Cotton', category: 'Traditional' },
+    { name: 'Net Fabric', fabricType: 'Polyester', category: 'Party Wear' },
+    
+    // Denim & Casual
+    { name: 'Denim Fabric', fabricType: 'Denim', category: 'Casual Wear' },
+    { name: 'Denim Stretch', fabricType: 'Denim', category: 'Casual Wear' },
+    
+    // Velvet & Luxury
+    { name: 'Velvet Brocade', fabricType: 'Velvet', category: 'Formal Wear' },
+    { name: 'Cotton Velvet', fabricType: 'Velvet', category: 'Formal Wear' }
   ]
 };
 
@@ -63,14 +113,12 @@ const connectDB = async () => {
   }
 };
 
-// Clear existing data
+// Clear existing data (skip admin, roles, permissions)
 const clearDatabase = async () => {
   try {
-    console.log('🗑️  Clearing existing data...');
+    console.log('🗑️  Clearing existing business data...');
     await Promise.all([
-      Admin.deleteMany({}),
-      Role.deleteMany({}),
-      Permission.deleteMany({}),
+      // Skip Admin, Role, Permission - keep existing
       Client.deleteMany({}),
       Supplier.deleteMany({}),
       Employee.deleteMany({}),
@@ -83,7 +131,7 @@ const clearDatabase = async () => {
       Payroll.deleteMany({}),
       LedgerEntry.deleteMany({})
     ]);
-    console.log('✅ Database cleared');
+    console.log('✅ Business data cleared');
   } catch (error) {
     console.error('❌ Error clearing database:', error);
   }
@@ -97,42 +145,42 @@ const quickSeed = async () => {
     
     console.log('🌱 Starting quick database seeding...');
     
-    // Create permissions
-    const permissions = await Permission.insertMany([
-      { name: 'dashboard_view', description: 'View Dashboard', module: 'Dashboard', action: 'read', resource: 'dashboard' },
-      { name: 'products_manage', description: 'Manage Products', module: 'Products', action: 'all', resource: 'products' },
-      { name: 'customers_manage', description: 'Manage Customers', module: 'Customers', action: 'all', resource: 'customers' },
-      { name: 'suppliers_manage', description: 'Manage Suppliers', module: 'Suppliers', action: 'all', resource: 'suppliers' },
-      { name: 'employees_manage', description: 'Manage Employees', module: 'Employees', action: 'all', resource: 'employees' },
-      { name: 'pos_manage', description: 'Manage POS', module: 'POS', action: 'all', resource: 'pos' },
-      { name: 'inventory_manage', description: 'Manage Inventory', module: 'Inventory', action: 'all', resource: 'inventory' },
-      { name: 'reports_view', description: 'View Reports', module: 'Reports', action: 'read', resource: 'reports' }
-    ]);
-
-    // Create roles
-    const ownerRole = await Role.create({
-      name: 'Owner',
-      description: 'Full system access',
-      permissions: permissions.map(p => p._id),
-      isSystemRole: true
-    });
-
-    const managerRole = await Role.create({
-      name: 'Manager',
-      description: 'Management access',
-      permissions: permissions.filter(p => !['settings_manage'].includes(p.name)).map(p => p._id),
-      isSystemRole: true
-    });
-
-    // Create admin
-    const admin = await Admin.create({
-      email: 'admin@binsultan.com',
-      name: 'Bin Sultan',
-      surname: 'Owner',
-      enabled: true,
-      role: ownerRole._id,
-      systemRole: 'owner'
-    });
+    // Get existing admin (skip creating new admin/roles)
+    let admin = await Admin.findOne({ email: 'admin@binsultan.com' });
+    
+    if (!admin) {
+      // Create a minimal admin without roles/permissions
+      admin = await Admin.create({
+        email: 'admin@binsultan.com',
+        name: 'Bin Sultan',
+        surname: 'Owner',
+        enabled: true,
+        systemRole: 'owner'
+      });
+      console.log('✅ Created minimal admin');
+    } else {
+      console.log('✅ Found existing admin');
+    }
+    
+    // Check if admin has password record
+    let adminPassword = await AdminPassword.findOne({ user: admin._id });
+    
+    if (!adminPassword) {
+      // Create password record with default password 'admin123'
+      const bcrypt = require('bcryptjs');
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(salt + 'admin123');
+      
+      adminPassword = await AdminPassword.create({
+        user: admin._id,
+        password: hashedPassword,
+        salt: salt,
+        emailVerified: true
+      });
+      console.log('✅ Created admin password (admin123)');
+    } else {
+      console.log('✅ Found existing admin password');
+    }
 
     // Create location
     const location = await Location.create({
@@ -182,9 +230,11 @@ const quickSeed = async () => {
 
     // Create employees
     const employees = [];
+    const roleNames = ['Manager', 'Cashier', 'Salesperson', 'Helper', 'Admin'];
+    
     for (let i = 0; i < quickData.employeeNames.length; i++) {
       const name = quickData.employeeNames[i];
-      const role = i === 0 ? managerRole : managerRole; // All managers for simplicity
+      const roleName = roleNames[i % roleNames.length];
       
       const employee = await Employee.create({
         employeeId: `EMP-${String(i + 1).padStart(3, '0')}`,
@@ -192,10 +242,10 @@ const quickSeed = async () => {
         phone: `+92-${getRandomNumber(300, 399)}-${getRandomNumber(1000000, 9999999)}`,
         email: `${name.toLowerCase().replace(/\s+/g, '')}@binsultan.com`,
         address: `${getRandomNumber(1, 999)} ${getRandomElement(quickData.cities)} Street, ${getRandomElement(quickData.cities)}`,
-        role: 'Manager',
-        salaryType: 'Fixed',
-        baseSalary: getRandomDecimal(50000, 80000),
-        commissionRate: 0,
+        role: roleName,
+        salaryType: roleName === 'Manager' ? 'Fixed' : getRandomElement(['Fixed', 'Commission', 'Hybrid']),
+        baseSalary: roleName === 'Manager' ? getRandomDecimal(50000, 80000) : getRandomDecimal(30000, 60000),
+        commissionRate: roleName === 'Manager' ? 0 : getRandomDecimal(2, 8),
         joiningDate: getRandomDate(new Date(2022, 0, 1), new Date(2023, 11, 31)),
         active: true,
         emergencyContact: {
@@ -203,7 +253,7 @@ const quickSeed = async () => {
           phone: `+92-${getRandomNumber(300, 399)}-${getRandomNumber(1000000, 9999999)}`,
           relationship: getRandomElement(['Father', 'Mother', 'Brother', 'Sister'])
         },
-        notes: `Experienced manager in textile business`,
+        notes: `Experienced ${roleName.toLowerCase()} in textile business`,
         createdBy: admin._id
       });
       employees.push(employee);

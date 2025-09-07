@@ -42,7 +42,7 @@ export default React.memo(function AppRouter() {
       const path = getAppNameByPath(location.pathname);
       app.open(path);
     }
-  }, [location.pathname]); // Remove app and getAppNameByPath from dependencies to prevent infinite loops
+  }, [location.pathname, app, getAppNameByPath]); // Include all dependencies to prevent stale closures
 
   let element = useRoutes(routesList);
 
