@@ -44,3 +44,4 @@ coverage/
 *.bak
 *.tmp
 *.orig
+backend/.env

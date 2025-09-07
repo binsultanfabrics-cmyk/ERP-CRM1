@@ -6,22 +6,18 @@ import './Sidebar.css';
 const { Sider } = Layout;
 
 export const Sidebar = ({ children, className = '', ...props }) => {
-  const { isCollapsed, isMobileOpen, isMobile } = useSidebar();
+  const { isCollapsed, isMobileOpen, isMobile, closeMobileSidebar } = useSidebar();
 
   const sidebarWidth = isCollapsed ? 80 : 280;
   const mobileWidth = 280;
 
   const sidebarStyle = {
-    position: 'fixed',
-    left: 0,
-    top: 0,
-    bottom: 0,
-    zIndex: 1000,
     background: 'var(--bg-secondary)',
     borderRight: '1px solid var(--border-primary)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     overflow: 'hidden',
     boxShadow: 'var(--shadow-lg)',
+    flexShrink: 0,
   };
 
   const mobileStyle = {
@@ -42,10 +38,7 @@ export const Sidebar = ({ children, className = '', ...props }) => {
       {isMobile && isMobileOpen && (
         <div
           className="sidebar-overlay"
-          onClick={() => {
-            const { closeMobileSidebar } = useSidebar();
-            closeMobileSidebar();
-          }}
+          onClick={closeMobileSidebar}
         />
       )}
 

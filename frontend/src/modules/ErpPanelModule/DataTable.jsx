@@ -174,7 +174,7 @@ export default function DataTable({ config, extra = [] }) {
   };
 
   return (
-    <>
+    <div style={{ maxWidth: '100%', overflowX: 'hidden', boxSizing: 'border-box' }}>
       <PageHeader
         title={DATATABLE_TITLE}
         ghost={true}
@@ -211,6 +211,6 @@ export default function DataTable({ config, extra = [] }) {
         onChange={handelDataTableLoad}
         scroll={{ x: true }}
       />
-    </>
+    </div>
   );
 }

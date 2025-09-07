@@ -12,6 +12,7 @@ const POS = lazy(() => import('@/pages/POS'));
 const Product = lazy(() => import('@/pages/Product'));
 const Inventory = lazy(() => import('@/pages/Inventory'));
 const Supplier = lazy(() => import('@/pages/Supplier'));
+const Employee = lazy(() => import('@/pages/Employee'));
 const Reports = lazy(() => import('@/pages/Reports'));
 const InvoiceCreate = lazy(() => import('@/pages/Invoice/InvoiceCreate'));
 
@@ -34,10 +35,6 @@ let routes = {
   expense: [],
   default: [
     {
-      path: '/login',
-      element: <Navigate to="/" />,
-    },
-    {
       path: '/logout',
       element: <Logout />,
     },
@@ -47,7 +44,15 @@ let routes = {
       element: <Dashboard />,
     },
     {
+      path: '/dashboard',
+      element: <Dashboard />,
+    },
+    {
       path: '/customer',
+      element: <Customer />,
+    },
+    {
+      path: '/customers',
       element: <Customer />,
     },
     {
@@ -59,6 +64,10 @@ let routes = {
       element: <Product />,
     },
     {
+      path: '/products',
+      element: <Product />,
+    },
+    {
       path: '/inventory',
       element: <Inventory />,
     },
@@ -67,8 +76,24 @@ let routes = {
       element: <Supplier />,
     },
     {
+      path: '/suppliers',
+      element: <Supplier />,
+    },
+    {
       path: '/reports',
       element: <Reports />,
+    },
+    {
+      path: '/employees',
+      element: <Navigate to="/employee" />,
+    },
+    {
+      path: '/employee',
+      element: <Employee />,
+    },
+    {
+      path: '/payments',
+      element: <Navigate to="/invoice" />,
     },
     {
       path: '/purchase-orders',

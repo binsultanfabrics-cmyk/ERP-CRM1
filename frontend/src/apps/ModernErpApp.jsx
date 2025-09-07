@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { SidebarProvider } from '@/components/Sidebar/ModernSidebar';
 import { AppSidebar } from '@/components/Sidebar/ModernAppSidebar';
 import { TopBar } from '@/components/Layout/TopBar';
-
 import PageLoader from '@/components/PageLoader';
 import PagePreloader from '@/components/PagePreloader';
 
@@ -15,14 +14,7 @@ import { selectSettings } from '@/redux/settings/selectors';
 import AppRouter from '@/router/AppRouter';
 import useResponsive from '@/hooks/useResponsive';
 
-// Module rendering function
-const renderModule = () => {
-  // For now, we'll use the existing router
-  // Later we can implement module-based rendering
-  return <AppRouter />;
-};
-
-export default React.memo(function ErpCrmApp() {
+export default React.memo(function ModernErpApp() {
   const { isMobile } = useResponsive();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,12 +33,12 @@ export default React.memo(function ErpCrmApp() {
 
   const { isSuccess: settingIsloaded } = useSelector(selectSettings);
 
-  // const useEffect(() => {
-  //   const { loadDefaultLang } = storePersist.get('firstVisit');
-  //   if (appSettings.bin_sultan_app_language && !loadDefaultLang) {
-  //     window.localStorage.setItem('firstVisit', JSON.stringify({ loadDefaultLang: true }));
-  //   }
-  // }, [appSettings]);
+  // Module rendering function
+  const renderModule = () => {
+    // For now, we'll use the existing router
+    // Later we can implement module-based rendering
+    return <AppRouter />;
+  };
 
   if (settingIsloaded) {
     return (

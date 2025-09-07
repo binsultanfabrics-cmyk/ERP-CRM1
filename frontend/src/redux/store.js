@@ -14,7 +14,9 @@ const AUTH_INITIAL_STATE = {
   isSuccess: false,
 };
 
-const auth_state = storePersist.get('auth') ? storePersist.get('auth') : AUTH_INITIAL_STATE;
+// Clear auth state on startup to ensure login page shows
+storePersist.remove('auth');
+const auth_state = AUTH_INITIAL_STATE;
 
 const initialState = { auth: auth_state };
 

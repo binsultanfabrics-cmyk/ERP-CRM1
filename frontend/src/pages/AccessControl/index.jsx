@@ -513,7 +513,7 @@ export default function AccessControl() {
                           <div>
                             <Text strong>{permission.name}</Text>
                             <br />
-                            <Text style={{ color: 'var(--text-secondary)' }} style={{ fontSize: '12px' }}>
+                              <Text style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>
                               {permission.description}
                             </Text>
                           </div>
