@@ -1,14 +1,27 @@
 {
   "version": 2,
   "name": "bin-sultan-erp-crm",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "backend/src/server.js"
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     },
     {
-      "source": "/(.*)",
-      "destination": "frontend/dist/index.html"
+      "src": "backend/src/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/src/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/dist/index.html"
     }
   ],
   "headers": [
@@ -35,17 +48,16 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "backend/src/server.js": {
-      "runtime": "nodejs20.x"
-    }
   },
   "installCommand": "cd backend && npm install && cd ../frontend && npm install",
   "buildCommand": "cd frontend && npm run build",
