@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   DashboardOutlined,
   ShoppingCartOutlined,
@@ -12,79 +13,79 @@ import {
   CreditCardOutlined,
   AuditOutlined,
   EnvironmentOutlined,
-  ShoppingBagOutlined,
+  FileDoneOutlined,
 } from '@ant-design/icons';
 
 export const navigationItems = [
   {
     key: 'dashboard',
-    icon: <DashboardOutlined />,
+    icon: React.createElement(DashboardOutlined),
     label: 'Dashboard',
     href: '/',
   },
   {
     key: 'pos',
-    icon: <ShoppingCartOutlined />,
+    icon: React.createElement(ShoppingCartOutlined),
     label: 'Point of Sale',
     href: '/pos',
   },
   {
     key: 'products',
-    icon: <ShoppingOutlined />,
+    icon: React.createElement(ShoppingOutlined),
     label: 'Products',
     href: '/product',
   },
   {
     key: 'inventory',
-    icon: <InboxOutlined />,
+    icon: React.createElement(InboxOutlined),
     label: 'Inventory',
     href: '/inventory',
   },
   {
     key: 'customers',
-    icon: <TeamOutlined />,
+    icon: React.createElement(TeamOutlined),
     label: 'Customers',
     href: '/customer',
   },
   {
     key: 'suppliers',
-    icon: <ShopOutlined />,
+    icon: React.createElement(ShopOutlined),
     label: 'Suppliers',
     href: '/supplier',
   },
   {
     key: 'invoices',
-    icon: <FileTextOutlined />,
+    icon: React.createElement(FileTextOutlined),
     label: 'Invoices',
     href: '/invoice',
   },
   {
     key: 'purchase-orders',
-    icon: <ShoppingBagOutlined />,
+    icon: React.createElement(FileDoneOutlined),
     label: 'Purchase Orders',
     href: '/purchase-orders',
   },
   {
     key: 'reports',
-    icon: <BarChartOutlined />,
+    icon: React.createElement(BarChartOutlined),
     label: 'Reports',
     href: '/reports',
   },
   {
     key: 'locations',
-    icon: <EnvironmentOutlined />,
+    icon: React.createElement(EnvironmentOutlined),
     label: 'Locations',
     href: '/locations',
   },
   {
     key: 'access-control',
-    icon: <AuditOutlined />,
+    icon: React.createElement(AuditOutlined),
     label: 'Access Control',
     href: '/access-control',
   },
   {
     key: 'settings',
-    icon: <SettingOutlined />,
+    icon: React.createElement(SettingOutlined),
     label: 'Settings',
     href: '/settings',
   },
