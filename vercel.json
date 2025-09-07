@@ -4,16 +4,21 @@
   "builds": [
     {
       "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "backend/src/server.js",
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "backend/src/server.js"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "frontend/dist/index.html"
     }
   ],
   "headers": [
@@ -47,8 +52,13 @@
   "env": {
     "NODE_ENV": "production"
   },
+  "functions": {
+    "backend/src/server.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "installCommand": "cd backend && npm install && cd ../frontend && npm install",
   "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "cd frontend && npm install",
   "framework": "vite"
 }

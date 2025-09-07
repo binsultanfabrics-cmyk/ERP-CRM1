@@ -49,15 +49,11 @@ if (process.env.DATABASE) {
   console.log('⚠️  Skipping model loading - no database connection');
 }
 
-// Start our app!
+// Create our Express app
 const app = require('./app');
-app.set('port', process.env.PORT || 8888);
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express running → On PORT : ${server.address().port}`);
-});
 
-// Start reminder jobs if database is connected
-if (process.env.DATABASE) {
+// Start reminder jobs if database is connected (only in non-serverless environments)
+if (process.env.DATABASE && !process.env.VERCEL) {
   const { startReminderJobs } = require('./jobs/reminderJob');
   startReminderJobs();
   
@@ -70,4 +66,19 @@ if (process.env.DATABASE) {
       console.error('Failed to initialize ERP features:', error);
     }
   }, 5000); // Wait 5 seconds for database to be ready
+}
+
+// For Vercel deployment: always export the app for serverless function
+// Vercel handles the request lifecycle in its serverless environment
+// This allows Vercel to handle HTTP requests and route them through /api/* paths
+// as configured in vercel.json
+module.exports = app;
+
+// For local development: also start the server if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  // Development mode - start the server
+  app.set('port', process.env.PORT || 8888);
+  const server = app.listen(app.get('port'), () => {
+    console.log(`Express running → On PORT : ${server.address().port}`);
+  });
 }

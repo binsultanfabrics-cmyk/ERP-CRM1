@@ -40,8 +40,5 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
-  },
-  "dependencies": {
-    "mongoose": "^8.18.0"
   }
 }
