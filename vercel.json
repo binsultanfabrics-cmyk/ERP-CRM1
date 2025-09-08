@@ -2,14 +2,14 @@
   "version": 2,
   "name": "bin-sultan-erp-crm",
   "functions": {
-    "backend/src/server.js": {
+    "api/index.js": {
       "runtime": "@vercel/node@3.0.0"
     }
   },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "backend/src/server.js"
+      "destination": "/api"
     },
     {
       "source": "/(.*)",
