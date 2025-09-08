@@ -51,7 +51,25 @@ if (process.env.DATABASE) {
 }
 
 // Create our Express app
-const app = require('../backend/src/app');
+let app;
+try {
+  app = require('../backend/src/app');
+  console.log('✅ Express app loaded successfully');
+} catch (error) {
+  console.error('❌ Failed to load Express app:', error);
+  // Create a simple error handler
+  const express = require('express');
+  app = express();
+  app.use(express.json());
+  app.all('*', (req, res) => {
+    res.status(500).json({
+      success: false,
+      error: 'Failed to load Express app',
+      details: error.message,
+      stack: error.stack
+    });
+  });
+}
 
 // Export the handler for Vercel
 module.exports = app;

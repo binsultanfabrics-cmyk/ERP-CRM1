@@ -5,14 +5,15 @@ const mongoose = require('mongoose');
 const authUser = require('./authUser');
 
 const login = async (req, res, { userModel }) => {
-  console.log('Login attempt:', { email: req.body.email, userModel });
-  console.log('Request headers:', req.headers);
-  console.log('Request URL:', req.url);
-  console.log('Request method:', req.method);
-  
-  const UserPasswordModel = mongoose.model(userModel + 'Password');
-  const UserModel = mongoose.model(userModel);
-  const { email, password } = req.body;
+  try {
+    console.log('Login attempt:', { email: req.body.email, userModel });
+    console.log('Request headers:', req.headers);
+    console.log('Request URL:', req.url);
+    console.log('Request method:', req.method);
+    
+    const UserPasswordModel = mongoose.model(userModel + 'Password');
+    const UserModel = mongoose.model(userModel);
+    const { email, password } = req.body;
 
   // validate
   const objectSchema = Joi.object({
@@ -59,6 +60,15 @@ const login = async (req, res, { userModel }) => {
     password,
     UserPasswordModel,
   });
+  } catch (error) {
+    console.error('Login error:', error);
+    return res.status(500).json({
+      success: false,
+      result: null,
+      error: error.message,
+      message: 'Internal server error during login',
+    });
+  }
 };
 
 module.exports = login;
