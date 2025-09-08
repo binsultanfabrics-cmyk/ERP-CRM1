@@ -37,6 +37,29 @@ app.use(compression());
 
 // Here our API Routes
 
+// Test route to verify serverless function is working
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    success: true, 
+    message: 'API is working!', 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    hasDatabase: !!process.env.DATABASE
+  });
+});
+
+// Debug route to see all incoming requests
+app.all('/api/*', (req, res, next) => {
+  console.log('API Request received:', {
+    method: req.method,
+    url: req.url,
+    path: req.path,
+    originalUrl: req.originalUrl,
+    headers: req.headers
+  });
+  next();
+});
+
 app.use('/api', coreAuthRouter);
 app.use('/api', coreApiRouter);
 app.use('/api', erpApiRouter);

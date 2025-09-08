@@ -5,6 +5,11 @@ const mongoose = require('mongoose');
 const authUser = require('./authUser');
 
 const login = async (req, res, { userModel }) => {
+  console.log('Login attempt:', { email: req.body.email, userModel });
+  console.log('Request headers:', req.headers);
+  console.log('Request URL:', req.url);
+  console.log('Request method:', req.method);
+  
   const UserPasswordModel = mongoose.model(userModel + 'Password');
   const UserModel = mongoose.model(userModel);
   const { email, password } = req.body;
