@@ -3,7 +3,7 @@
   "name": "bin-sultan-erp-crm",
   "functions": {
     "api/index.js": {
-      "runtime": "@vercel/node@3.0.0"
+      "runtime": "nodejs18.x"
     }
   },
   "rewrites": [
